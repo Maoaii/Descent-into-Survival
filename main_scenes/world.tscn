@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv14nulisxusb"]
+[gd_scene load_steps=4 format=3 uid="uid://bv14nulisxusb"]
 
-[ext_resource type="PackedScene" uid="uid://btconpb6k5wg3" path="res://main_scenes/section.tscn" id="1_uylre"]
+[ext_resource type="PackedScene" uid="uid://do6xky05iugqd" path="res://main_scenes/section.tscn" id="1_uylre"]
+[ext_resource type="PackedScene" uid="uid://cgy4cvoxrxcrs" path="res://main_scenes/game_manager.tscn" id="2_wincf"]
+[ext_resource type="PackedScene" uid="uid://cko02oljhiby" path="res://paused/paused.tscn" id="3_15c8r"]
 
 [node name="World" type="Node2D"]
 
+[node name="GameManager" parent="." instance=ExtResource("2_wincf")]
+
 [node name="Section1" parent="." instance=ExtResource("1_uylre")]
+
+[node name="Paused" parent="." instance=ExtResource("3_15c8r")]
+visible = false

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://djoovce5mn3t0"]
+
+[ext_resource type="PackedScene" uid="uid://c3qxxiq1w6lbq" path="res://main_scenes/interactable_path_button.tscn" id="1_e2klb"]
+[ext_resource type="Script" path="res://main_scripts/section.gd" id="1_sv1bp"]
+
+[node name="Section3" type="Node2D" node_paths=PackedStringArray("focused_entity") groups=["Section"]]
+script = ExtResource("1_sv1bp")
+focused_entity = NodePath("Paths/LeftPath")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 566.0
+offset_top = 81.0
+offset_right = 636.0
+offset_bottom = 107.0
+text = "Section 3"
+
+[node name="Paths" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftPath" parent="Paths" instance=ExtResource("1_e2klb")]
+offset_left = 238.0
+offset_top = 150.0
+offset_right = 459.0
+offset_bottom = 546.0
+next_area = "res://main_scenes/section.tscn"
+
+[node name="RightPath" parent="Paths" instance=ExtResource("1_e2klb")]
+offset_left = 773.0
+offset_top = 155.0
+offset_right = 994.0
+offset_bottom = 551.0
+next_area = "res://main_scenes/section2.tscn"
