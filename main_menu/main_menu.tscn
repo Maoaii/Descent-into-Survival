@@ -62,9 +62,7 @@ offset_bottom = -45.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "CONTROLS
-Move: WASD | Accept: J | Cancel: K | Pause: P
-Move: Arrow Keys | Accept: Z | Cancel: Z | Pause: Esc
-Gamepads work too!"
+"
 horizontal_alignment = 2
 
 [node name="Instructions" type="Label" parent="."]
@@ -78,7 +76,7 @@ offset_right = 336.0
 offset_bottom = -45.0
 grow_vertical = 0
 text = "INSTRUCTIONS
-Collect all the things!"
+"
 
 [node name="Version" type="Label" parent="."]
 layout_mode = 1
