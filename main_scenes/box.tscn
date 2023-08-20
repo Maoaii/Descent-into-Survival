@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bydmpxfqxgp00"]
+
+[ext_resource type="Texture2D" uid="uid://t6juwfc87751" path="res://assets/box.png" id="1_utl5l"]
+[ext_resource type="Texture2D" uid="uid://cxsqicj16bf6t" path="res://assets/box_focus.png" id="2_ad8gt"]
+
+[node name="Box" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_utl5l")
+texture_focused = ExtResource("2_ad8gt")

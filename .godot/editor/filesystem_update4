@@ -1,15 +1,6 @@
-res://paused/paused.tscn
 res://main_scenes/world.tscn
-res://main_scripts/game_manager.gd
-res://paused/paused.gd
-res://main_scenes/interactable_path.tscn
-res://main_menu/main_menu.tscn
 res://main_scenes/section.tscn
-res://main_scenes/section_2.tscn
-res://main_scenes/section_3.tscn
-res://main_scenes/game_manager.tscn
-res://main_scenes/interactable_path_button.tscn
-res://main_scripts/interactable_path_button.gd
 res://main_scenes/section2.tscn
+res://main_scenes/box.tscn
 res://main_scenes/section3.tscn
-res://main_scripts/section.gd
+res://main_scripts/interactable_path_button.gd

@@ -13,4 +13,4 @@ func _on_pressed():
 	if not changing_area:
 		changing_area = true
 		get_tree().get_first_node_in_group("GameManager").change_area(loaded_next_area)
-		get_parent().get_parent().queue_free()
+		get_parent().queue_free()
