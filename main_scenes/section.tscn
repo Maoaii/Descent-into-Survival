@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://btconpb6k5wg3"]
+
+[ext_resource type="PackedScene" uid="uid://c7qga3bypeh1c" path="res://main_scenes/interactable_path.tscn" id="1_82jw6"]
+
+[node name="Section1" type="Node2D"]
+
+[node name="InteractablePath" parent="." instance=ExtResource("1_82jw6")]
+position = Vector2(346, 135)
+
+[node name="InteractablePath2" parent="." instance=ExtResource("1_82jw6")]
+position = Vector2(204, 139)
+
+[node name="InteractablePath3" parent="." instance=ExtResource("1_82jw6")]
+position = Vector2(83, 129)
