@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/version_label.gd" id="1_3wfr4"]
 [ext_resource type="Script" path="res://scenes/main_menu/menu_options.gd" id="2_bwpwi"]
 [ext_resource type="PackedScene" uid="uid://bdnyglk1i1cxl" path="res://scenes/gameplay/gameplay.tscn" id="3_ivpuo"]
-[ext_resource type="PackedScene" uid="uid://dpicmplffpula" path="res://settings/settings.tscn" id="4_nbo20"]
+[ext_resource type="PackedScene" uid="uid://dpicmplffpula" path="res://scenes/settings/settings.tscn" id="4_nbo20"]
 [ext_resource type="PackedScene" uid="uid://cee5dna3u27jf" path="res://assets/select_sfx.tscn" id="5_ugm6v"]
 
 [node name="MainMenu" type="Control"]
@@ -15,11 +15,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BG" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -34.0
-offset_top = -28.0
-offset_right = 1318.0
-offset_bottom = 758.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.227451, 0.368627, 0.521569, 1)
 
 [node name="Title" type="Label" parent="."]
@@ -61,10 +62,7 @@ offset_right = -25.0
 offset_bottom = -45.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "CONTROLS
-Move: WASD | Accept: J | Cancel: K | Pause: P
-Move: Arrow Keys | Accept: Z | Cancel: Z | Pause: Esc
-Gamepads work too!"
+text = "CONTROLS"
 horizontal_alignment = 2
 
 [node name="Instructions" type="Label" parent="."]
@@ -78,7 +76,7 @@ offset_right = 336.0
 offset_bottom = -45.0
 grow_vertical = 0
 text = "INSTRUCTIONS
-Collect all the things!"
+"
 
 [node name="Version" type="Label" parent="."]
 layout_mode = 1

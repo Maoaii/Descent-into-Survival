@@ -1,16 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://m03vwsnrma2p"]
 
 [ext_resource type="Script" path="res://scenes/players/player_top_down.gd" id="1_2l78q"]
-[ext_resource type="Texture2D" uid="uid://bdu8j442phoep" path="res://icon.svg" id="1_hjr5d"]
+[ext_resource type="Texture2D" uid="uid://47u0ee4512bd" path="res://assets/protag forward idle.png" id="2_swakd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffix3"]
-size = Vector2(128, 128)
+size = Vector2(24, 58)
 
 [node name="PlayerTopDown" type="CharacterBody2D"]
 script = ExtResource("1_2l78q")
+speed = 400.0
+has_acceleration = true
+acceleration = 2000
+deacceleration = 3000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_hjr5d")
+texture = ExtResource("2_swakd")
+region_enabled = true
+region_rect = Rect2(19.6068, 2.80326, 23.6292, 57.5103)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ffix3")

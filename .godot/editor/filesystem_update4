@@ -1,2 +1,7 @@
 res://scenes/gameplay/gameplay.tscn
-res://scenes/autoloads/dialogue.tscn
+res://scenes/gameplay/gameplay.gd
+res://scenes/players/player_top_down.tscn
+res://scenes/paused/paused.gd
+res://scenes/main_menu/main_menu.tscn
+res://scenes/paused/paused.tscn
+res://scenes/settings/settings.tscn
