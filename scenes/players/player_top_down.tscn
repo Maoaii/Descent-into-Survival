@@ -59,6 +59,7 @@ has_acceleration = true
 acceleration = 5.0
 deacceleration = 10.0
 bullet = ExtResource("2_6p7p2")
+shoot_cooldown = 0.3
 action_time = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -80,6 +81,9 @@ shape = SubResource("CapsuleShape2D_xn7lm")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="ActionTimer" type="Timer" parent="."]
+
+[node name="ShootCooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="UI" type="Control" parent="."]
 z_index = 10

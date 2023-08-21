@@ -23,6 +23,7 @@ enum States {
 
 @export_group("Shooting variables")
 @export var bullet: PackedScene 
+@export_range(0.01, 100) var shoot_cooldown: float = 1.0
 
 @export_group("Actionable variables")
 @export_range(1, 10) var action_time: int = 3
@@ -32,6 +33,7 @@ enum States {
 @onready var action_timer: Timer = $ActionTimer
 @onready var action_bar: ProgressBar = $UI/ActionBar
 @onready var end_of_gun: Marker2D = $EndOfGun
+@onready var shoot_cooldown_timer: Timer = $ShootCooldown
 
 var _state: int = States.IDLE
 var current_dir: Vector2
@@ -43,6 +45,8 @@ func _ready() -> void:
 	action_bar.hide()
 	action_bar.max_value = action_time
 	action_timer.wait_time = action_time
+	
+	shoot_cooldown_timer.wait_time = shoot_cooldown
 
 func check_debugs():
 	$UI/StateLabel.visible = state_debug
@@ -150,6 +154,10 @@ func check_nearest_actionable() -> void:
 
 
 func fire() -> void:
+	if not shoot_cooldown_timer.is_stopped():
+		return
+	shoot_cooldown_timer.start()
+	
 	var bullet_instance: Area2D = bullet.instantiate()
 	var target = get_local_mouse_position()
 	var direction_to_mouse = end_of_gun.position.direction_to(target).normalized()
