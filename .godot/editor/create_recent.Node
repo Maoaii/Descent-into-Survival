@@ -1,9 +1,10 @@
+AnimatedSprite2D
+Label
 Sprite2D
 CanvasLayer
 Control
 TextureButton
 Button
 Node
-Label
 CollisionShape2D
 Area2D

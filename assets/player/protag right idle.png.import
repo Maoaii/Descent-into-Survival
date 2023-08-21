@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://47u0ee4512bd"
-path="res://.godot/imported/protag forward idle.png-b377c549fe0ea3fa4d579200264b024e.ctex"
+uid="uid://cbi1tyep31pxn"
+path="res://.godot/imported/protag right idle.png-da7b49013d0767c0041df78084affc28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/protag forward idle.png"
-dest_files=["res://.godot/imported/protag forward idle.png-b377c549fe0ea3fa4d579200264b024e.ctex"]
+source_file="res://assets/player/protag right idle.png"
+dest_files=["res://.godot/imported/protag right idle.png-da7b49013d0767c0041df78084affc28.ctex"]
 
 [params]
 
