@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://m03vwsnrma2p"]
+[gd_scene load_steps=10 format=3 uid="uid://m03vwsnrma2p"]
 
 [ext_resource type="Script" path="res://scenes/players/player_top_down.gd" id="1_2l78q"]
+[ext_resource type="PackedScene" uid="uid://b8e5emsk0645y" path="res://scenes/pistol/bullet.tscn" id="2_6p7p2"]
 [ext_resource type="Texture2D" uid="uid://cefu07b2diteg" path="res://assets/player/protag back idle.png" id="2_772jl"]
 [ext_resource type="Texture2D" uid="uid://47u0ee4512bd" path="res://assets/player/protag forward idle.png" id="2_ft6ix"]
 [ext_resource type="Texture2D" uid="uid://jmoay6ux0h4u" path="res://assets/player/protag left idle.png" id="4_byvwo"]
@@ -48,7 +49,7 @@ size = Vector2(24, 54)
 radius = 12.0
 height = 44.0
 
-[node name="PlayerTopDown" type="CharacterBody2D"]
+[node name="PlayerTopDown" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_2l78q")
 state_debug = false
 nearest_actionable_debug = false
@@ -57,6 +58,8 @@ speed = 400.0
 has_acceleration = true
 acceleration = 5.0
 deacceleration = 10.0
+bullet = ExtResource("2_6p7p2")
+action_time = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dtuvp")
@@ -71,6 +74,8 @@ collision_mask = 513
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableCollider"]
 position = Vector2(24, 0)
 shape = SubResource("CapsuleShape2D_xn7lm")
+
+[node name="EndOfGun" type="Marker2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

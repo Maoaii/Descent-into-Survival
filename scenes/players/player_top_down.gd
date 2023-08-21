@@ -1,5 +1,7 @@
+class_name Player
 extends CharacterBody2D
 
+signal bullet_fired(bullet, pos, dir)
 
 enum States {
 	IDLE,
@@ -19,13 +21,17 @@ enum States {
 @export var acceleration: float = 1_000
 @export var deacceleration: float = 1_000
 
+@export_group("Shooting variables")
+@export var bullet: PackedScene 
+
 @export_group("Actionable variables")
-@export_range(1, INF) var action_time: int = 3
+@export_range(1, 10) var action_time: int = 3
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactable_collider: Area2D = $InteractableCollider
 @onready var action_timer: Timer = $ActionTimer
 @onready var action_bar: ProgressBar = $UI/ActionBar
+@onready var end_of_gun: Marker2D = $EndOfGun
 
 var _state: int = States.IDLE
 var current_dir: Vector2
@@ -52,6 +58,8 @@ func _process(_delta: float) -> void:
 		else:
 			$UI/NearestActionableLabel.text = "No actionable"
 	
+	if Input.is_action_just_pressed("fire"):
+		fire()
 	
 	check_nearest_actionable()
 	handle_interaction()
@@ -139,3 +147,11 @@ func check_nearest_actionable() -> void:
 	
 	if next_nearest_actionable != nearest_actionable or not is_instance_valid(next_nearest_actionable):
 		nearest_actionable = next_nearest_actionable
+
+
+func fire() -> void:
+	var bullet_instance: Area2D = bullet.instantiate()
+	var target = get_local_mouse_position()
+	var direction_to_mouse = end_of_gun.position.direction_to(target).normalized()
+	
+	emit_signal("bullet_fired", bullet_instance, end_of_gun.global_position, direction_to_mouse)

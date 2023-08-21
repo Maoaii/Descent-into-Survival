@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt2mt5snopc7f"]
+
+[ext_resource type="Script" path="res://scenes/pistol/bullet_manager.gd" id="1_ypuy1"]
+
+[node name="BulletManager" type="Node2D" groups=["BulletManager"]]
+script = ExtResource("1_ypuy1")

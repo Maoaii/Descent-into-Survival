@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=10 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="PackedScene" uid="uid://m03vwsnrma2p" path="res://scenes/players/player_top_down.tscn" id="2_387ag"]
 [ext_resource type="Texture2D" uid="uid://bgprycbqd2tbx" path="res://icon.svg" id="2_qxb15"]
 [ext_resource type="PackedScene" uid="uid://cko02oljhiby" path="res://scenes/paused/paused.tscn" id="3_w8wrl"]
 [ext_resource type="PackedScene" uid="uid://cee5dna3u27jf" path="res://assets/select_sfx.tscn" id="4_7kf0b"]
+[ext_resource type="PackedScene" uid="uid://d3lbyd1mnvwm4" path="res://scenes/game_manager.tscn" id="6_1gbjt"]
+[ext_resource type="PackedScene" uid="uid://bt2mt5snopc7f" path="res://scenes/pistol/bullet_manager.tscn" id="7_cbvos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gthno"]
 size = Vector2(126, 126)
@@ -17,9 +19,6 @@ script = ExtResource("1_thqv1")
 
 [node name="PlayerTopDown" parent="." instance=ExtResource("2_387ag")]
 position = Vector2(272, 331)
-state_debug = true
-nearest_actionable_debug = true
-collision_shape_debug = true
 
 [node name="Box" type="StaticBody2D" parent="." groups=["Actionable"]]
 position = Vector2(547, 263)
@@ -35,6 +34,10 @@ shape = SubResource("RectangleShape2D_gthno")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
 shape = SubResource("RectangleShape2D_tm8i1")
+
+[node name="GameManager" parent="." instance=ExtResource("6_1gbjt")]
+
+[node name="BulletManager" parent="." instance=ExtResource("7_cbvos")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
