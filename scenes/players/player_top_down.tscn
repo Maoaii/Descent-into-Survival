@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://m03vwsnrma2p"]
+[gd_scene load_steps=9 format=3 uid="uid://m03vwsnrma2p"]
 
 [ext_resource type="Script" path="res://scenes/players/player_top_down.gd" id="1_2l78q"]
 [ext_resource type="Texture2D" uid="uid://cefu07b2diteg" path="res://assets/player/protag back idle.png" id="2_772jl"]
@@ -44,12 +44,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffix3"]
 size = Vector2(24, 54)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xn7lm"]
+radius = 12.0
+height = 44.0
+
 [node name="PlayerTopDown" type="CharacterBody2D"]
 script = ExtResource("1_2l78q")
+state_debug = false
+nearest_actionable_debug = false
+collision_shape_debug = false
 speed = 400.0
 has_acceleration = true
-acceleration = 2000
-deacceleration = 3000
+acceleration = 5.0
+deacceleration = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dtuvp")
@@ -58,12 +65,76 @@ animation = &"idle_right"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ffix3")
 
+[node name="InteractableCollider" type="Area2D" parent="."]
+collision_mask = 513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableCollider"]
+position = Vector2(24, 0)
+shape = SubResource("CapsuleShape2D_xn7lm")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="StateLabel" type="Label" parent="."]
-offset_left = -47.0
-offset_top = -56.0
-offset_right = 48.0
-offset_bottom = -30.0
+[node name="ActionTimer" type="Timer" parent="."]
+
+[node name="UI" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StateLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -52.0
+offset_right = 52.5
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "State:"
 horizontal_alignment = 1
+
+[node name="NearestActionableLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -72.0
+offset_right = 54.5
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Actionable"
+horizontal_alignment = 1
+
+[node name="ActionBar" type="ProgressBar" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = 31.0
+offset_right = 25.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 3.0
+show_percentage = false

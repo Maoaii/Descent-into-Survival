@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=8 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="PackedScene" uid="uid://m03vwsnrma2p" path="res://scenes/players/player_top_down.tscn" id="2_387ag"]
@@ -6,13 +6,35 @@
 [ext_resource type="PackedScene" uid="uid://cko02oljhiby" path="res://scenes/paused/paused.tscn" id="3_w8wrl"]
 [ext_resource type="PackedScene" uid="uid://cee5dna3u27jf" path="res://assets/select_sfx.tscn" id="4_7kf0b"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gthno"]
+size = Vector2(126, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tm8i1"]
+size = Vector2(128, 126)
+
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_thqv1")
 
 [node name="PlayerTopDown" parent="." instance=ExtResource("2_387ag")]
-position = Vector2(251, 180)
+position = Vector2(272, 331)
+state_debug = true
+nearest_actionable_debug = true
+collision_shape_debug = true
 
-[node name="SelectSfx" parent="." instance=ExtResource("4_7kf0b")]
+[node name="Box" type="StaticBody2D" parent="." groups=["Actionable"]]
+position = Vector2(547, 263)
+
+[node name="Sprite2D" type="Sprite2D" parent="Box"]
+texture = ExtResource("2_qxb15")
+
+[node name="Area2D" type="Area2D" parent="Box"]
+collision_layer = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/Area2D"]
+shape = SubResource("RectangleShape2D_gthno")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+shape = SubResource("RectangleShape2D_tm8i1")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -20,6 +42,4 @@ position = Vector2(251, 180)
 visible = false
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(547, 263)
-texture = ExtResource("2_qxb15")
+[node name="SelectSfx" parent="." instance=ExtResource("4_7kf0b")]

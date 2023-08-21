@@ -1,10 +1,13 @@
-AnimatedSprite2D
+Timer
+ProgressBar
+Control
+CollisionShape2D
+StaticBody2D
+Area2D
 Label
+AnimatedSprite2D
 Sprite2D
 CanvasLayer
-Control
 TextureButton
 Button
 Node
-CollisionShape2D
-Area2D

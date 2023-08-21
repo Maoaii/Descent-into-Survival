@@ -4,3 +4,4 @@ res://scenes/gameplay/gameplay.tscn
 res://scenes/main_menu/main_menu.tscn
 res://scenes/paused/paused.tscn
 res://scenes/settings/settings.tscn
+res://scenes/gameplay/gameplay.gd
