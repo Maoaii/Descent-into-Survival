@@ -1,6 +1,2 @@
-res://main_scenes/world.tscn
-res://main_scenes/section.tscn
-res://main_scenes/section2.tscn
-res://main_scenes/box.tscn
-res://main_scenes/section3.tscn
-res://main_scripts/interactable_path_button.gd
+res://scenes/gameplay/gameplay.tscn
+res://scenes/autoloads/dialogue.tscn
