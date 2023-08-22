@@ -5,3 +5,6 @@ res://scenes/enemies/chasing_enemy.tscn
 res://scenes/pistol/bullet.tscn
 res://scenes/components/health_component.tscn
 res://scenes/players/player_top_down.gd
+res://scenes/gameplay/point_light_2d.tscn
+res://scenes/gameplay/light.tscn
+res://assets/light.tres

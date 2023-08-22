@@ -1,7 +1,12 @@
+PointLight2D
+DirectionalLight2D
+Timer
+LightOccluder2D
+CanvasLayer
+CanvasModulate
 TileMap
 Node2D
 Node
-Timer
 NavigationAgent2D
 CollisionShape2D
 Area2D
@@ -16,6 +21,5 @@ ProgressBar
 Control
 StaticBody2D
 AnimatedSprite2D
-CanvasLayer
 TextureButton
 Button
