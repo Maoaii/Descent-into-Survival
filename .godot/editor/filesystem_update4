@@ -1,12 +1,4 @@
-res://scenes/main_menu/main_menu.tscn
-res://scenes/main_menu/menu.gd
-res://scenes/gameplay/gameplay.tscn
 res://scenes/players/player_top_down.tscn
-res://scenes/pistol/bullet_manager.tscn
-res://scenes/game_manager.tscn
-res://scenes/autoloads/music_player.tscn
-res://scenes/main_menu/menu_options.gd
+res://scenes/players/player_top_down.gd
+res://scenes/gameplay/gameplay.tscn
 res://scenes/settings/settings.tscn
-res://scenes/settings/settings_controls.gd
-res://scenes/settings/music_toggle.gd
-res://scenes/autoloads/global.gd

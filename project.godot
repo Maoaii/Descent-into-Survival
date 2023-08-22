@@ -16,6 +16,10 @@ run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://assets/icon.png"
 
+[aseprite_importers]
+
+aseprite_executable_path="/Applications/Aseprite.app/Contents/MacOS/aseprite"
+
 [autoload]
 
 Dialogue="*res://scenes/autoloads/dialogue.tscn"
@@ -29,6 +33,10 @@ window/size/viewport_width=640
 window/size/viewport_height=480
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
 [input]
 

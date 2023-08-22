@@ -36,7 +36,8 @@ enum States {
 @onready var shoot_cooldown_timer: Timer = $ShootCooldown
 
 var _state: int = States.IDLE
-var current_dir: Vector2
+var current_dir: Vector2 = Vector2.DOWN
+var last_dir: Vector2 = Vector2.DOWN
 var nearest_actionable
 
 func _ready() -> void:
@@ -70,21 +71,21 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
+	current_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	
-	if direction:
+	if current_dir:
 		_state = States.RUNNING
-		current_dir = direction
+		last_dir = current_dir
 	else:
-		_state = States.IDLE
+		_state = States.IDLE 
 	
 	if has_acceleration:
-		if direction.length() == 0.0:
+		if current_dir.length() == 0.0:
 			velocity = velocity.move_toward(Vector2.ZERO, deacceleration * delta * speed)
 		else:
-			velocity = velocity.move_toward(direction * speed, acceleration * delta * speed)
+			velocity = velocity.move_toward(current_dir * speed, acceleration * delta * speed)
 	else:
-		velocity = direction * speed
+		velocity = current_dir * speed
 	
 	if not action_timer.is_stopped():
 		_state = States.INTERACTING
@@ -128,15 +129,28 @@ func update_direction_collider() -> void:
 		interactable_collider.rotation = PI/2
 
 func update_sprite() -> void:
+	print("Current dir: (" + str(current_dir.x) + ", " + str(current_dir.y) + ")")
+	print("Last dir: (" + str(last_dir.x) + ", " + str(last_dir.y) + ")")
 	if current_dir.x < 0: # Moving left
-		sprite.play("idle_left")
+		sprite.play("RunLeft")
 	elif current_dir.x > 0: # Moving right
-		sprite.play("idle_right")
+		sprite.play("RunRight")
+	
 	
 	if current_dir.y < 0: # Moving up
-		sprite.play("idle_back")
+		sprite.play("IdleBack")
 	elif current_dir.y > 0: # Moving down
-		sprite.play("idle_forward")
+		sprite.play("IdleFront")
+	
+	if current_dir == Vector2.ZERO:
+		if last_dir.x < 0:
+			sprite.play("IdleLeft")
+		elif last_dir.x > 0:
+			sprite.play("IdleRight")
+		elif last_dir.y < 0:
+			sprite.play("IdleBack")
+		elif last_dir.y > 0:
+			sprite.play("IdleFront")
 
 func check_nearest_actionable() -> void:
 	var areas: Array[Area2D] = interactable_collider.get_overlapping_areas()

@@ -1,46 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://m03vwsnrma2p"]
+[gd_scene load_steps=6 format=3 uid="uid://m03vwsnrma2p"]
 
 [ext_resource type="Script" path="res://scenes/players/player_top_down.gd" id="1_2l78q"]
 [ext_resource type="PackedScene" uid="uid://b8e5emsk0645y" path="res://scenes/pistol/bullet.tscn" id="2_6p7p2"]
-[ext_resource type="Texture2D" uid="uid://cefu07b2diteg" path="res://assets/player/protag back idle.png" id="2_772jl"]
-[ext_resource type="Texture2D" uid="uid://47u0ee4512bd" path="res://assets/player/protag forward idle.png" id="2_ft6ix"]
-[ext_resource type="Texture2D" uid="uid://jmoay6ux0h4u" path="res://assets/player/protag left idle.png" id="4_byvwo"]
-[ext_resource type="Texture2D" uid="uid://cbi1tyep31pxn" path="res://assets/player/protag right idle.png" id="5_rouou"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dtuvp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_772jl")
-}],
-"loop": true,
-"name": &"idle_back",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ft6ix")
-}],
-"loop": true,
-"name": &"idle_forward",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_byvwo")
-}],
-"loop": true,
-"name": &"idle_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_rouou")
-}],
-"loop": true,
-"name": &"idle_right",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://niepur7b0l2i" path="res://assets/player/protag.aseprite" id="3_elxt2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffix3"]
 size = Vector2(24, 54)
@@ -62,9 +24,9 @@ bullet = ExtResource("2_6p7p2")
 shoot_cooldown = 0.3
 action_time = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_dtuvp")
-animation = &"idle_right"
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("3_elxt2")]
+animation = &"IdleFront"
+frame_progress = 0.787673
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ffix3")

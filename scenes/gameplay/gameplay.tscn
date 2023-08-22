@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=11 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="PackedScene" uid="uid://m03vwsnrma2p" path="res://scenes/players/player_top_down.tscn" id="2_387ag"]
@@ -13,6 +13,8 @@ size = Vector2(126, 126)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm8i1"]
 size = Vector2(128, 126)
+
+[sub_resource type="TileSet" id="TileSet_nao6e"]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_thqv1")
@@ -46,3 +48,8 @@ visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="SelectSfx" parent="." instance=ExtResource("4_7kf0b")]
+bus = &"Sound"
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_nao6e")
+format = 2
