@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=20 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="TileSet" uid="uid://14t0onj3ro66" path="res://scenes/gameplay/collidable_tile_set.tres" id="2_5l3uv"]
 [ext_resource type="PackedScene" uid="uid://m03vwsnrma2p" path="res://scenes/players/player_top_down.tscn" id="2_387ag"]
 [ext_resource type="Texture2D" uid="uid://bgprycbqd2tbx" path="res://icon.svg" id="2_qxb15"]
+[ext_resource type="AudioStream" uid="uid://dohxu4qarfp6v" path="res://sound/Game_Play_track.wav" id="2_ty0s7"]
 [ext_resource type="PackedScene" uid="uid://cko02oljhiby" path="res://scenes/paused/paused.tscn" id="3_w8wrl"]
 [ext_resource type="PackedScene" uid="uid://cee5dna3u27jf" path="res://assets/select_sfx.tscn" id="4_7kf0b"]
 [ext_resource type="PackedScene" uid="uid://d3lbyd1mnvwm4" path="res://scenes/game_manager.tscn" id="6_1gbjt"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bt2mt5snopc7f" path="res://scenes/pistol/bullet_manager.tscn" id="7_cbvos"]
 [ext_resource type="PackedScene" uid="uid://d3t1edryk84ae" path="res://scenes/enemies/chasing_enemy.tscn" id="8_6a15r"]
 [ext_resource type="Texture2D" uid="uid://dxf4f14bk50pw" path="res://assets/basic terrain.aseprite" id="8_e7lc7"]
+[ext_resource type="Texture2D" uid="uid://bq525epq0b3b1" path="res://assets/health_bar_under.aseprite" id="10_v52fu"]
+[ext_resource type="Texture2D" uid="uid://d4g3tvkj47da6" path="res://assets/health_bar_progress.aseprite" id="11_m7287"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_egowm"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -116,6 +119,7 @@ size = Vector2(128, 126)
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_thqv1")
+music = ExtResource("2_ty0s7")
 
 [node name="CollidablesTileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_5l3uv")
@@ -157,6 +161,17 @@ position = Vector2(917, 496)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI"]
+offset_left = 17.0
+offset_top = 17.0
+offset_right = 155.0
+offset_bottom = 64.0
+max_value = 5.0
+value = 5.0
+texture_under = ExtResource("10_v52fu")
+texture_progress = ExtResource("11_m7287")
+texture_progress_offset = Vector2(41, 18)
+
 [node name="Paused" parent="UI" instance=ExtResource("3_w8wrl")]
 visible = false
 metadata/_edit_use_anchors_ = true
@@ -165,4 +180,4 @@ metadata/_edit_use_anchors_ = true
 bus = &"Sound"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+color = Color(0.0588235, 0.0196078, 0, 1)

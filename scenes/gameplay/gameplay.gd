@@ -1,5 +1,12 @@
 extends Node2D
 
+@export var music: AudioStreamWAV
+
+
+func _ready():
+	if MusicPlayer.stream != music or MusicPlayer.get_playback_position() <= 0:
+		MusicPlayer.stream = music
+		MusicPlayer.play()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("pause"):

@@ -8,3 +8,6 @@ res://scenes/players/player_top_down.gd
 res://scenes/gameplay/point_light_2d.tscn
 res://scenes/gameplay/light.tscn
 res://assets/light.tres
+res://scenes/gameplay/gameplay.gd
+res://scenes/main_menu/main_menu.tscn
+res://scenes/main_menu/menu.gd

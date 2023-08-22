@@ -6,7 +6,7 @@ extends Control
 
 
 func _ready():
-	if MusicPlayer.get_playback_position() <= 0:
+	if MusicPlayer.stream != music or MusicPlayer.get_playback_position() <= 0:
 		MusicPlayer.stream = music
 		MusicPlayer.play()
 	
