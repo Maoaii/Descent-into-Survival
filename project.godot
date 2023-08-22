@@ -21,6 +21,7 @@ config/icon="res://assets/icon.png"
 Dialogue="*res://scenes/autoloads/dialogue.tscn"
 Global="*res://scenes/autoloads/global.gd"
 Sound="*res://scenes/autoloads/sound.gd"
+MusicPlayer="*res://scenes/autoloads/music_player.tscn"
 
 [display]
 

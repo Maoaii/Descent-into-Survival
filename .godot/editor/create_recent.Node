@@ -1,3 +1,6 @@
+Label
+HSlider
+AudioStreamPlayer2D
 Timer
 Node
 Marker2D
@@ -8,7 +11,6 @@ RigidBody2D
 ProgressBar
 Control
 StaticBody2D
-Label
 AnimatedSprite2D
 CanvasLayer
 TextureButton

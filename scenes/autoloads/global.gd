@@ -1,7 +1,10 @@
 extends Node
 
+var master_volume: float = 1
 var play_sfx = true
+var sfx_volume: float = 1
 var play_music = true
+var music_volume: float = 1
 var fullscreen = false
 var version = null
 var show_debug_ui = false
@@ -35,7 +38,7 @@ func load_settings() -> void:
 ## add a new setting in the array to ensure it persists
 func save_settings() -> void:
 	var config = ConfigFile.new()
-	for setting in ["fullscreen", "play_sfx", "play_music"]:
+	for setting in ["fullscreen", "master_volume", "music_volume", "sfx_volume", "play_sfx", "play_music"]:
 		config.set_value(CONFIG_SETTINGS_SECTION, setting, self[setting])
 	config.save(SETTINGS_FILE)
 

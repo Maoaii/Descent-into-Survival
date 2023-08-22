@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://j87n4lychbt5"]
+[gd_scene load_steps=8 format=3 uid="uid://j87n4lychbt5"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/version_label.gd" id="1_3wfr4"]
+[ext_resource type="Script" path="res://scenes/main_menu/menu.gd" id="1_tsltd"]
+[ext_resource type="AudioStream" uid="uid://daoodcjqyipw" path="res://sound/Main_Theme.wav" id="2_0x04r"]
 [ext_resource type="Script" path="res://scenes/main_menu/menu_options.gd" id="2_bwpwi"]
 [ext_resource type="PackedScene" uid="uid://bdnyglk1i1cxl" path="res://scenes/gameplay/gameplay.tscn" id="3_ivpuo"]
 [ext_resource type="PackedScene" uid="uid://dpicmplffpula" path="res://scenes/settings/settings.tscn" id="4_nbo20"]
@@ -13,6 +15,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tsltd")
+music = ExtResource("2_0x04r")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1

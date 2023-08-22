@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpicmplffpula"]
+[gd_scene load_steps=4 format=3 uid="uid://dpicmplffpula"]
 
 [ext_resource type="Script" path="res://scenes/settings/settings_controls.gd" id="1_n5jcg"]
 [ext_resource type="Script" path="res://scenes/settings/fullscreen_toggle.gd" id="2_xaxe3"]
-[ext_resource type="Script" path="res://scenes/settings/sfx_toggle.gd" id="3_ojkp7"]
-[ext_resource type="Script" path="res://scenes/settings/music_toggle.gd" id="4_0gokw"]
 [ext_resource type="Script" path="res://scenes/settings/back_button.gd" id="5_uk7ws"]
 
 [node name="Settings" type="Control"]
@@ -60,9 +58,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -76.0
-offset_top = 234.0
+offset_top = 204.0
 offset_right = 77.0
-offset_bottom = -9.0
+offset_bottom = -39.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -73,15 +71,35 @@ layout_mode = 2
 text = "Fullscreen"
 script = ExtResource("2_xaxe3")
 
-[node name="SfxToggle" type="CheckButton" parent="SettingsControls"]
+[node name="MasterLabel" type="Label" parent="SettingsControls"]
 layout_mode = 2
-text = "Sound Effects"
-script = ExtResource("3_ojkp7")
+text = "Master"
 
-[node name="MusicToggle" type="CheckButton" parent="SettingsControls"]
+[node name="MasterVolume" type="HSlider" parent="SettingsControls"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="MusicLabel" type="Label" parent="SettingsControls"]
 layout_mode = 2
 text = "Music"
-script = ExtResource("4_0gokw")
+
+[node name="MusicVolume" type="HSlider" parent="SettingsControls"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SFXLabel" type="Label" parent="SettingsControls"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXVolume" type="HSlider" parent="SettingsControls"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="BackButton" type="Button" parent="SettingsControls"]
 layout_mode = 2
@@ -89,6 +107,7 @@ text = "Back"
 script = ExtResource("5_uk7ws")
 
 [connection signal="toggled" from="SettingsControls/FullscreenToggle" to="SettingsControls/FullscreenToggle" method="_on_toggled"]
-[connection signal="toggled" from="SettingsControls/SfxToggle" to="SettingsControls/SfxToggle" method="_on_toggled"]
-[connection signal="toggled" from="SettingsControls/MusicToggle" to="SettingsControls/MusicToggle" method="_on_toggled"]
+[connection signal="value_changed" from="SettingsControls/MasterVolume" to="SettingsControls" method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="SettingsControls/MusicVolume" to="SettingsControls" method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="SettingsControls/SFXVolume" to="SettingsControls" method="_on_sfx_volume_value_changed"]
 [connection signal="pressed" from="SettingsControls/BackButton" to="SettingsControls/BackButton" method="_on_pressed"]

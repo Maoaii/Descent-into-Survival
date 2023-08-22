@@ -16,4 +16,5 @@ func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_packed(settings_scene)
 
 func _on_start_pressed() -> void:
+	MusicPlayer.stop()
 	get_tree().change_scene_to_packed(gameplay_scene)

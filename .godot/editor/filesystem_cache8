@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1692637756
+::res://::1692695166
 default_bus_layout.tres::AudioBusLayout::8922219954232985134::1692625627::0::1::::<><>::
 export.cfg::TextFile::-1::1691443867::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1691443867::0::1::::<><>::
@@ -9,7 +9,7 @@ README.md::TextFile::-1::1692531472::0::1::::<><>::
 icon.png::CompressedTexture2D::2421078698829644185::1692625627::1692626890::1::::<><>::
 select.wav::AudioStreamWAV::487564314468390015::1691443867::1691443908::1::::<><>::
 select_sfx.tscn::PackedScene::5063681804222848335::1691443867::0::1::::<><>::uid://g7gd3wlypowd
-::res://assets/player/::1692637972
+::res://assets/player/::1692638220
 protag back idle.png::CompressedTexture2D::5065179298934693226::1692638219::1692638220::1::::<><>::
 protag forward idle.png::CompressedTexture2D::2102795755967192417::1692638215::1692638220::1::::<><>::
 protag left idle.png::CompressedTexture2D::657323473079515522::1692638208::1692638220::1::::<><>::
@@ -19,38 +19,47 @@ protag right idle.png::CompressedTexture2D::4861159072412443719::1692638190::169
 dialogue_action.gd::GDScript::-1::1692625627::0::1::::DialogueAction<>InteractableAction<>::
 interactable_action.gd::GDScript::-1::1692625627::0::1::::InteractableAction<>Resource<>::
 test_dialogue.txt::TextFile::-1::1692625627::0::1::::<><>::
-::res://scenes/::1692626783
+::res://scenes/::1692651517
+game_manager.gd::GDScript::-1::1692650295::0::1::::<>Node<>::
+game_manager.tscn::PackedScene::9147361602583765381::1692651517::0::1::::<><>::res://scenes/game_manager.gd
 ::res://scenes/autoloads/::1692627163
 dialogue.gd::GDScript::-1::1692626258::0::1::::<>Window<>::
 dialogue.tscn::PackedScene::5821455665861133470::1692627163::0::1::::<><>::res://scenes/autoloads/dialogue.gd
 global.gd::GDScript::-1::1692627016::0::1::::<>Node<>::
 press.gd::GDScript::-1::1692625627::0::1::::<>AcceptDialog<>::
 sound.gd::GDScript::-1::1692626917::0::1::::<>Node<>::
-::res://scenes/gameplay/::1692638083
-gameplay.gd::GDScript::-1::1692627529::0::1::::<>Node2D<>::
-gameplay.tscn::PackedScene::2625292642397732273::1692638083::0::1::::<><>::res://scenes/gameplay/gameplay.gd<>uid://m03vwsnrma2p::::res://scenes/players/player_top_down.tscn<>uid://bgprycbqd2tbx::::res://icon.svg<>uid://cko02oljhiby::::res://scenes/paused/paused.tscn<>uid://cee5dna3u27jf::::res://assets/select_sfx.tscn
+::res://scenes/gameplay/::1692651517
+gameplay.gd::GDScript::-1::1692642625::0::1::::<>Node2D<>::
+gameplay.tscn::PackedScene::2625292642397732273::1692651517::0::1::::<><>::res://scenes/gameplay/gameplay.gd<>uid://m03vwsnrma2p::::res://scenes/players/player_top_down.tscn<>uid://bgprycbqd2tbx::::res://icon.svg<>uid://cko02oljhiby::::res://scenes/paused/paused.tscn<>uid://cee5dna3u27jf::::res://assets/select_sfx.tscn<>uid://d3lbyd1mnvwm4::::res://scenes/game_manager.tscn<>uid://bt2mt5snopc7f::::res://scenes/pistol/bullet_manager.tscn
 ::res://scenes/interactables/::1692625627
 interactable.gd::GDScript::-1::1692625627::0::1::::Interactable<>Area2D<>::
 interactable.tscn::PackedScene::4460808495860960189::1692625627::0::1::::<><>::res://scenes/interactables/interactable.gd
-::res://scenes/main_menu/::1692638083
-main_menu.tscn::PackedScene::701791758978957120::1692638083::0::1::::<><>::res://scenes/main_menu/version_label.gd<>res://scenes/main_menu/menu_options.gd<>uid://bdnyglk1i1cxl::::res://scenes/gameplay/gameplay.tscn<>uid://dpicmplffpula::::res://scenes/settings/settings.tscn<>uid://cee5dna3u27jf::::res://assets/select_sfx.tscn
+::res://scenes/main_menu/::1692641607
+main_menu.tscn::PackedScene::701791758978957120::1692641607::0::1::::<><>::res://scenes/main_menu/version_label.gd<>res://scenes/main_menu/menu_options.gd<>uid://bdnyglk1i1cxl::::res://scenes/gameplay/gameplay.tscn<>uid://dpicmplffpula::::res://scenes/settings/settings.tscn<>uid://cee5dna3u27jf::::res://assets/select_sfx.tscn
 menu_options.gd::GDScript::-1::1691443867::0::1::::<>VFlowContainer<>::
 version_label.gd::GDScript::-1::1691443867::0::1::::<>Label<>::
-::res://scenes/paused/::1692638083
+::res://scenes/paused/::1692641607
 options.gd::GDScript::-1::1691443867::0::1::::<>VFlowContainer<>::
 paused.gd::GDScript::-1::1692627587::0::1::::<>Control<>::
-paused.tscn::PackedScene::161917587832832258::1692638083::0::1::::<><>::res://scenes/paused/paused.gd<>res://scenes/paused/options.gd
-::res://scenes/players/::1692638107
+paused.tscn::PackedScene::161917587832832258::1692641607::0::1::::<><>::res://scenes/paused/paused.gd<>res://scenes/paused/options.gd
+::res://scenes/pistol/::1692651517
+bullet.gd::GDScript::-1::1692650992::0::1::::Bullet<>Area2D<>::
+bullet.tscn::PackedScene::4712739346298719184::1692651517::0::1::::<><>::res://scenes/pistol/bullet.gd<>uid://bgprycbqd2tbx::::res://icon.svg
+bullet_manager.gd::GDScript::-1::1692650489::0::1::::BulletManager<>Node2D<>::
+bullet_manager.tscn::PackedScene::3776511050289666885::1692651517::0::1::::<><>::res://scenes/pistol/bullet_manager.gd
+::res://scenes/players/::1692651517
 player_grid.gd::GDScript::-1::1692625627::0::1::::<>CharacterBody2D<>::
 player_grid.tscn::PackedScene::5147233811151881519::1692625627::0::1::::<><>::res://scenes/players/player_grid.gd<>uid://bdu8j442phoep
 player_platformer.gd::GDScript::-1::1692625627::0::1::::<>CharacterBody2D<>::
 player_platformer.tscn::PackedScene::4965083573234584832::1692625627::0::1::::<><>::res://scenes/players/player_platformer.gd<>uid://bdu8j442phoep
-player_top_down.gd::GDScript::-1::1692638082::0::1::::<>CharacterBody2D<>::
-player_top_down.tscn::PackedScene::895614328911380277::1692638107::0::1::::<><>::res://scenes/players/player_top_down.gd<>uid://cefu07b2diteg::::res://assets/player/protag back idle.png<>uid://47u0ee4512bd::::res://assets/player/protag forward idle.png<>uid://jmoay6ux0h4u::::res://assets/player/protag left idle.png<>uid://cbi1tyep31pxn::::res://assets/player/protag right idle.png
-::res://scenes/settings/::1692638083
+player_top_down.gd::GDScript::-1::1692651212::0::1::::Player<>CharacterBody2D<>::
+player_top_down.tscn::PackedScene::895614328911380277::1692651517::0::1::::<><>::res://scenes/players/player_top_down.gd<>uid://b8e5emsk0645y::::res://scenes/pistol/bullet.tscn<>uid://cefu07b2diteg::::res://assets/player/protag back idle.png<>uid://47u0ee4512bd::::res://assets/player/protag forward idle.png<>uid://jmoay6ux0h4u::::res://assets/player/protag left idle.png<>uid://cbi1tyep31pxn::::res://assets/player/protag right idle.png
+::res://scenes/settings/::1692641607
 back_button.gd::GDScript::-1::1691443867::0::1::::<>Button<>::
 fullscreen_toggle.gd::GDScript::-1::1691443867::0::1::::<>CheckButton<>::
 music_toggle.gd::GDScript::-1::1691443867::0::1::::<>CheckButton<>::
-settings.tscn::PackedScene::8228753396272231406::1692638083::0::1::::<><>::res://scenes/settings/settings_controls.gd<>res://scenes/settings/fullscreen_toggle.gd<>res://scenes/settings/sfx_toggle.gd<>res://scenes/settings/music_toggle.gd<>res://scenes/settings/back_button.gd
+settings.tscn::PackedScene::8228753396272231406::1692641607::0::1::::<><>::res://scenes/settings/settings_controls.gd<>res://scenes/settings/fullscreen_toggle.gd<>res://scenes/settings/sfx_toggle.gd<>res://scenes/settings/music_toggle.gd<>res://scenes/settings/back_button.gd
 settings_controls.gd::GDScript::-1::1691443867::0::1::::<>VFlowContainer<>::
 sfx_toggle.gd::GDScript::-1::1691443867::0::1::::<>CheckButton<>::
+::res://sound/::1692695167
+Main_Theme.wav::AudioStreamWAV::211441731018408724::1692695158::1692695171::1::::<><>::
