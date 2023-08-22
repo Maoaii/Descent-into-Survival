@@ -2,3 +2,5 @@ res://scenes/players/player_top_down.tscn
 res://scenes/players/player_top_down.gd
 res://scenes/gameplay/gameplay.tscn
 res://scenes/autoloads/music_player.tscn
+res://scenes/enemies/chasing_enemy.tscn
+res://scenes/enemies/chasing_enemy.gd
