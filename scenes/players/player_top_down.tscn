@@ -94,6 +94,15 @@ grow_vertical = 2
 text = "Actionable"
 horizontal_alignment = 1
 
+[node name="BulletsLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -72.0
+offset_right = 63.0
+offset_bottom = -46.0
+text = "Bullets:"
+horizontal_alignment = 1
+
 [node name="ActionBar" type="ProgressBar" parent="UI"]
 layout_mode = 1
 anchors_preset = 8

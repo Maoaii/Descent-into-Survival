@@ -24,6 +24,7 @@ enum States {
 @export_group("Shooting variables")
 @export var bullet: PackedScene 
 @export_range(0.01, 100) var shoot_cooldown: float = 1.0
+@export var magazine_size: int = 10
 
 @export_group("Actionable variables")
 @export_range(1, 10) var action_time: int = 3
@@ -36,12 +37,15 @@ enum States {
 @onready var shoot_cooldown_timer: Timer = $ShootCooldown
 
 var _state: int = States.IDLE
+var current_bullets: int
 var current_dir: Vector2 = Vector2.DOWN
 var last_dir: Vector2 = Vector2.DOWN
 var nearest_actionable
 
 func _ready() -> void:
 	check_debugs()
+	
+	current_bullets = magazine_size
 	
 	action_bar.hide()
 	action_bar.max_value = action_time
@@ -65,9 +69,13 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("fire"):
 		fire()
+	if Input.is_action_just_pressed("reload"):
+		reload_gun()
 	
 	check_nearest_actionable()
 	handle_interaction()
+	
+	$UI/BulletsLabel.text = "Bullets: " + str(current_bullets)
 
 
 func _physics_process(delta: float) -> void:
@@ -168,12 +176,19 @@ func check_nearest_actionable() -> void:
 
 
 func fire() -> void:
+	if current_bullets <= 0:
+		return
+	
 	if not shoot_cooldown_timer.is_stopped():
 		return
 	shoot_cooldown_timer.start()
+	current_bullets -= 1
 	
 	var bullet_instance: Area2D = bullet.instantiate()
 	var target = get_local_mouse_position()
 	var direction_to_mouse = end_of_gun.position.direction_to(target).normalized()
 	
 	emit_signal("bullet_fired", bullet_instance, end_of_gun.global_position, direction_to_mouse)
+
+func reload_gun() -> void:
+	current_bullets = magazine_size
