@@ -1,8 +1,8 @@
+Timer
 Label
 TileMap
 HSlider
 AudioStreamPlayer2D
-Timer
 Node
 Marker2D
 Area2D

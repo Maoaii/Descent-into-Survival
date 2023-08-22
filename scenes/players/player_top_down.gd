@@ -25,6 +25,7 @@ enum States {
 @export var bullet: PackedScene 
 @export_range(0.01, 100) var shoot_cooldown: float = 1.0
 @export var magazine_size: int = 10
+@export var reload_time: int = 2
 
 @export_group("Actionable variables")
 @export_range(1, 10) var action_time: int = 3
@@ -35,6 +36,7 @@ enum States {
 @onready var action_bar: ProgressBar = $UI/ActionBar
 @onready var end_of_gun: Marker2D = $EndOfGun
 @onready var shoot_cooldown_timer: Timer = $ShootCooldown
+@onready var reload_timer: Timer = $ReloadTimer
 
 var _state: int = States.IDLE
 var current_bullets: int
@@ -52,6 +54,7 @@ func _ready() -> void:
 	action_timer.wait_time = action_time
 	
 	shoot_cooldown_timer.wait_time = shoot_cooldown
+	reload_timer.wait_time = reload_time
 
 func check_debugs():
 	$UI/StateLabel.visible = state_debug
@@ -67,10 +70,10 @@ func _process(_delta: float) -> void:
 		else:
 			$UI/NearestActionableLabel.text = "No actionable"
 	
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire") and reload_timer.is_stopped():
 		fire()
-	if Input.is_action_just_pressed("reload"):
-		reload_gun()
+	if Input.is_action_just_pressed("reload") and reload_timer.is_stopped():
+		reload_timer.start()
 	
 	check_nearest_actionable()
 	handle_interaction()
@@ -192,3 +195,7 @@ func fire() -> void:
 
 func reload_gun() -> void:
 	current_bullets = magazine_size
+
+
+func _on_reload_timer_timeout():
+	reload_gun()

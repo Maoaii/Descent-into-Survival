@@ -22,6 +22,7 @@ acceleration = 5.0
 deacceleration = 10.0
 bullet = ExtResource("2_6p7p2")
 shoot_cooldown = 0.3
+reload_time = 1
 action_time = 2
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("3_elxt2")]
@@ -45,6 +46,9 @@ shape = SubResource("CapsuleShape2D_xn7lm")
 [node name="ActionTimer" type="Timer" parent="."]
 
 [node name="ShootCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="UI" type="Control" parent="."]
@@ -118,3 +122,5 @@ grow_horizontal = 2
 grow_vertical = 2
 max_value = 3.0
 show_percentage = false
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
