@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=18 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="PackedScene" uid="uid://m03vwsnrma2p" path="res://scenes/players/player_top_down.tscn" id="2_387ag"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cee5dna3u27jf" path="res://assets/select_sfx.tscn" id="4_7kf0b"]
 [ext_resource type="PackedScene" uid="uid://d3lbyd1mnvwm4" path="res://scenes/game_manager.tscn" id="6_1gbjt"]
 [ext_resource type="PackedScene" uid="uid://bt2mt5snopc7f" path="res://scenes/pistol/bullet_manager.tscn" id="7_cbvos"]
+[ext_resource type="PackedScene" uid="uid://d3t1edryk84ae" path="res://scenes/enemies/chasing_enemy.tscn" id="8_6a15r"]
 [ext_resource type="Texture2D" uid="uid://dxf4f14bk50pw" path="res://assets/basic terrain.aseprite" id="8_e7lc7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bddcr"]
@@ -339,7 +340,8 @@ layer_0/tile_data = PackedInt32Array(655370, 1, 7, 720906, 1, 1, 655371, 65537, 
 position = Vector2(272, 331)
 
 [node name="Box" type="StaticBody2D" parent="." groups=["Actionable"]]
-position = Vector2(547, 263)
+position = Vector2(491, 320)
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Box"]
 texture = ExtResource("2_qxb15")
@@ -365,3 +367,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SelectSfx" parent="." instance=ExtResource("4_7kf0b")]
 bus = &"Sound"
+
+[node name="ChasingEnemy" parent="." instance=ExtResource("8_6a15r")]
+position = Vector2(590, 435)

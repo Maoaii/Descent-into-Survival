@@ -140,8 +140,6 @@ func update_direction_collider() -> void:
 		interactable_collider.rotation = PI/2
 
 func update_sprite() -> void:
-	print("Current dir: (" + str(current_dir.x) + ", " + str(current_dir.y) + ")")
-	print("Last dir: (" + str(last_dir.x) + ", " + str(last_dir.y) + ")")
 	if current_dir.x < 0: # Moving left
 		sprite.play("RunLeft")
 	elif current_dir.x > 0: # Moving right
