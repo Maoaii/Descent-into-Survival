@@ -72,13 +72,16 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_pressed("fire") and reload_timer.is_stopped():
 		fire()
-	if Input.is_action_just_pressed("reload") and reload_timer.is_stopped():
+	if Input.is_action_just_pressed("reload") and reload_timer.is_stopped() and current_bullets != magazine_size:
 		reload_timer.start()
 	
 	check_nearest_actionable()
 	handle_interaction()
 	
-	$UI/BulletsLabel.text = "Bullets: " + str(current_bullets)
+	if reload_timer.is_stopped():
+		$UI/BulletsLabel.text = "Bullets: " + str(current_bullets)
+	else:
+		$UI/BulletsLabel.text = "Reloading..."
 
 
 func _physics_process(delta: float) -> void:

@@ -3,6 +3,7 @@ extends Area2D
 
 @export var speed: float = 10
 @export_range(0.1, 100) var despawn_time: float = 1.0
+@export var damage: int = 5
 
 @onready var despawn_timer: Timer = $DespawnTimer
 
@@ -22,5 +23,13 @@ func set_direction(dir: Vector2) -> void:
 	direction = dir
 	rotation += dir.angle()
 
-func _on_despawn_timer_timeout():
+func _on_despawn_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_body_entered(body) -> void:
+	if body.name == "CollidablesTileMap":
+		queue_free()
+	if body.is_in_group("Enemies"):
+		body.take_damage(damage)
+		queue_free()
