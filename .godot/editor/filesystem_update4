@@ -9,3 +9,5 @@ res://scenes/players/player_top_down.gd
 res://scenes/components/health_component.gd
 res://scenes/enemies/medusa_enemy.gd
 res://scenes/game_manager.tscn
+res://scenes/enemies/shooting_enemy.tscn
+res://scenes/enemies/shooting_enemy.gd
