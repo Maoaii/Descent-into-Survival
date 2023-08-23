@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=26 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="TileSet" uid="uid://14t0onj3ro66" path="res://scenes/gameplay/collidable_tile_set.tres" id="2_5l3uv"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cic7l3g4qold0" path="res://assets/pickups/key.png" id="15_orn3i"]
 [ext_resource type="Texture2D" uid="uid://e4mwq2y08ikt" path="res://assets/pickups/power cell.png" id="16_iamcp"]
 [ext_resource type="Texture2D" uid="uid://7r33qk0a7kc6" path="res://assets/pickups/torch.png" id="17_3brrd"]
+[ext_resource type="PackedScene" uid="uid://duv3eojo3n7sd" path="res://scenes/enemies/medusa_enemy.tscn" id="20_h6f1c"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_egowm"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -161,6 +162,9 @@ shape = SubResource("RectangleShape2D_tm8i1")
 [node name="ChasingEnemy" parent="." instance=ExtResource("8_6a15r")]
 position = Vector2(917, 496)
 
+[node name="MedusaEnemy" parent="." instance=ExtResource("20_h6f1c")]
+position = Vector2(779, 385)
+
 [node name="GameManager" parent="." instance=ExtResource("6_1gbjt")]
 
 [node name="BulletManager" parent="." instance=ExtResource("7_cbvos")]
@@ -209,4 +213,5 @@ metadata/_edit_use_anchors_ = true
 bus = &"Sound"
 
 [node name="Darkness" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0588235, 0.0196078, 0, 1)

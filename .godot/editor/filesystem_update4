@@ -6,3 +6,6 @@ res://scenes/main_menu/main_menu.tscn
 res://scenes/gameplay/outline.gdshader
 res://scenes/players/player_top_down.gd
 res://scenes/gameplay/interactable.gd
+res://scenes/enemies/medusa_enemy.tscn
+res://scenes/enemies/chasing_enemy.gd
+res://scenes/enemies/medusa_enemy.gd

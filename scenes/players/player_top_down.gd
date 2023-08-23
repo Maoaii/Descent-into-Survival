@@ -91,7 +91,10 @@ func _physics_process(delta: float) -> void:
 		_state = States.RUNNING
 		last_dir = current_dir
 	else:
-		_state = States.IDLE 
+		_state = States.IDLE
+	
+	#print("Last dir: (" + str(last_dir.x) + ", " + str(last_dir.y) + ")")
+	#print("Current dir: (" + str(current_dir.x) + ", " + str(current_dir.y) + ")")
 	
 	if has_acceleration:
 		if current_dir.length() == 0.0:
