@@ -39,7 +39,9 @@ enum States {
 @onready var shoot_cooldown_timer: Timer = $ShootCooldown
 @onready var reload_timer: Timer = $ReloadTimer
 @onready var stun_timer: Timer = $StunTimer
+@onready var health_component: HealthComponent = $HealthComponent
 
+var health_bar: TextureProgressBar
 var _state: int = States.IDLE
 var current_bullets: int
 var current_dir: Vector2 = Vector2.DOWN
@@ -57,6 +59,11 @@ func _ready() -> void:
 	
 	shoot_cooldown_timer.wait_time = shoot_cooldown
 	reload_timer.wait_time = reload_time
+	
+	health_bar = get_tree().get_first_node_in_group("HealthBar")
+	health_component.current_health = health_component.max_health
+	health_component.health_depleted.connect(player_dead)
+
 
 func check_debugs():
 	$UI/StateLabel.visible = state_debug
@@ -214,3 +221,10 @@ func stun(duration: float) -> void:
 	stun_timer.wait_time = duration
 	stun_timer.start()
 	_state = States.STUNNED
+
+func hurt_player(damage: int) -> void:
+	health_component.take_damage(damage)
+	health_bar.value = health_component.current_health
+
+func player_dead() -> void:
+	get_tree().change_scene_to_file("res://scenes/gameplay/gameplay.tscn")

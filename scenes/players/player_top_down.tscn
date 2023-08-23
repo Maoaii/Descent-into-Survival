@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://m03vwsnrma2p"]
+[gd_scene load_steps=8 format=3 uid="uid://m03vwsnrma2p"]
 
 [ext_resource type="Script" path="res://scenes/players/player_top_down.gd" id="1_2l78q"]
 [ext_resource type="PackedScene" uid="uid://b8e5emsk0645y" path="res://scenes/pistol/bullet.tscn" id="2_6p7p2"]
 [ext_resource type="PackedScene" uid="uid://niepur7b0l2i" path="res://assets/player/protag.aseprite" id="3_elxt2"]
 [ext_resource type="PackedScene" uid="uid://kv3shvktt6ap" path="res://scenes/gameplay/light.tscn" id="4_tqqqq"]
+[ext_resource type="PackedScene" uid="uid://vt50pn6egjwn" path="res://scenes/components/health_component.tscn" id="5_y0svs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffix3"]
 size = Vector2(24, 54)
@@ -54,6 +55,9 @@ one_shot = true
 
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_y0svs")]
+max_health = 5
 
 [node name="UI" type="Control" parent="."]
 z_index = 100
