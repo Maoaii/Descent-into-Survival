@@ -213,5 +213,4 @@ metadata/_edit_use_anchors_ = true
 bus = &"Sound"
 
 [node name="Darkness" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0588235, 0.0196078, 0, 1)

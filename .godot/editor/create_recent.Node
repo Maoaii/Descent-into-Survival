@@ -1,3 +1,5 @@
+Label
+Control
 Timer
 Polygon2D
 ColorRect
@@ -18,13 +20,11 @@ CanvasModulate
 TileMap
 Node2D
 Node
-Label
 HSlider
 AudioStreamPlayer2D
 Marker2D
 RigidBody2D
 ProgressBar
-Control
 StaticBody2D
 AnimatedSprite2D
 TextureButton

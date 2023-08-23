@@ -14,7 +14,6 @@ height = 44.0
 
 [node name="PlayerTopDown" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_2l78q")
-state_debug = false
 nearest_actionable_debug = false
 collision_shape_debug = false
 has_acceleration = true
@@ -51,6 +50,9 @@ shape = SubResource("CapsuleShape2D_xn7lm")
 one_shot = true
 
 [node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StunTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="UI" type="Control" parent="."]

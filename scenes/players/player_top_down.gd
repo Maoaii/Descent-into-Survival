@@ -7,7 +7,8 @@ enum States {
 	IDLE,
 	RUNNING,
 	ATTACKING,
-	INTERACTING
+	INTERACTING,
+	STUNNED
 }
 
 @export_group("Debug variables")
@@ -37,6 +38,7 @@ enum States {
 @onready var end_of_gun: Marker2D = $EndOfGun
 @onready var shoot_cooldown_timer: Timer = $ShootCooldown
 @onready var reload_timer: Timer = $ReloadTimer
+@onready var stun_timer: Timer = $StunTimer
 
 var _state: int = States.IDLE
 var current_bullets: int
@@ -85,6 +87,9 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if not stun_timer.is_stopped():
+		return
+	
 	current_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	
 	if current_dir:
@@ -92,9 +97,6 @@ func _physics_process(delta: float) -> void:
 		last_dir = current_dir
 	else:
 		_state = States.IDLE
-	
-	#print("Last dir: (" + str(last_dir.x) + ", " + str(last_dir.y) + ")")
-	#print("Current dir: (" + str(current_dir.x) + ", " + str(current_dir.y) + ")")
 	
 	if has_acceleration:
 		if current_dir.length() == 0.0:
@@ -207,3 +209,8 @@ func reload_gun() -> void:
 
 func _on_reload_timer_timeout():
 	reload_gun()
+
+func stun(duration: float) -> void:
+	stun_timer.wait_time = duration
+	stun_timer.start()
+	_state = States.STUNNED
