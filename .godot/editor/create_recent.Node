@@ -1,3 +1,6 @@
+AnimationPlayer
+ColorRect
+CanvasLayer
 Sprite2D
 CollisionShape2D
 Timer
@@ -9,7 +12,6 @@ Control
 NavigationAgent2D
 CharacterBody2D
 Polygon2D
-ColorRect
 CollisionPolygon2D
 VBoxContainer
 TextureRect
@@ -17,7 +19,6 @@ TextureProgressBar
 PointLight2D
 DirectionalLight2D
 LightOccluder2D
-CanvasLayer
 CanvasModulate
 TileMap
 Node2D

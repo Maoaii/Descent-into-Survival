@@ -227,4 +227,4 @@ func hurt_player(damage: int) -> void:
 	health_bar.value = health_component.current_health
 
 func player_dead() -> void:
-	get_tree().change_scene_to_file("res://scenes/gameplay/gameplay.tscn")
+	SceneChangingMachine.change_scene("res://scenes/gameplay/gameplay.tscn")

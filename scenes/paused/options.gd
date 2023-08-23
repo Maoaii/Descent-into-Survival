@@ -15,4 +15,4 @@ func _on_quit_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	var root = get_tree().get_root().get_tree()
 	root.paused = false
-	root.change_scene_to_file(Global.SCENE_MAIN_MENU)
+	SceneChangingMachine.change_scene(Global.SCENE_MAIN_MENU)

@@ -26,6 +26,7 @@ Dialogue="*res://scenes/autoloads/dialogue.tscn"
 Global="*res://scenes/autoloads/global.gd"
 Sound="*res://scenes/autoloads/sound.gd"
 MusicPlayer="*res://scenes/autoloads/music_player.tscn"
+SceneChangingMachine="*res://scenes/autoloads/scene_changing_machine.tscn"
 
 [display]
 

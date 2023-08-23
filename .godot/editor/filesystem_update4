@@ -10,3 +10,11 @@ res://scenes/players/player_top_down.tscn
 res://scenes/enemies/shooting_enemy.gd
 res://scenes/pistol/bullet_manager.gd
 res://scenes/players/player_top_down.gd
+res://scenes/enemies/chasing_enemy.gd
+res://scenes/autoloads/scene_changing_machine.tscn
+res://scenes/autoloads/SceneChangingMachine.gd
+res://scenes/settings/back_button.gd
+res://scenes/main_menu/menu_options.gd
+res://scenes/paused/options.gd
+res://scenes/main_menu/main_menu.tscn
+res://scenes/paused/paused.tscn
