@@ -207,7 +207,7 @@ func fire() -> void:
 	var bullet_instance: Area2D = bullet.instantiate()
 	var target = get_local_mouse_position()
 	var direction_to_mouse = end_of_gun.position.direction_to(target).normalized()
-	
+	bullet_instance.set_enemy("Enemies")
 	emit_signal("bullet_fired", bullet_instance, end_of_gun.global_position, direction_to_mouse)
 
 func reload_gun() -> void:

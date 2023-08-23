@@ -1,3 +1,5 @@
+NavigationObstacle2D
+Marker2D
 Timer
 Label
 Control
@@ -22,7 +24,6 @@ Node2D
 Node
 HSlider
 AudioStreamPlayer2D
-Marker2D
 RigidBody2D
 ProgressBar
 StaticBody2D
