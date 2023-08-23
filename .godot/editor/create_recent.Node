@@ -1,3 +1,5 @@
+VBoxContainer
+TextureRect
 TextureProgressBar
 Sprite2D
 PointLight2D

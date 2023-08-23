@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=25 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="TileSet" uid="uid://14t0onj3ro66" path="res://scenes/gameplay/collidable_tile_set.tres" id="2_5l3uv"]
@@ -8,12 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://cko02oljhiby" path="res://scenes/paused/paused.tscn" id="3_w8wrl"]
 [ext_resource type="PackedScene" uid="uid://cee5dna3u27jf" path="res://assets/select_sfx.tscn" id="4_7kf0b"]
 [ext_resource type="PackedScene" uid="uid://d3lbyd1mnvwm4" path="res://scenes/game_manager.tscn" id="6_1gbjt"]
+[ext_resource type="Script" path="res://scenes/gameplay/interactable.gd" id="6_3d23b"]
 [ext_resource type="PackedScene" uid="uid://kv3shvktt6ap" path="res://scenes/gameplay/light.tscn" id="6_ldmkp"]
 [ext_resource type="PackedScene" uid="uid://bt2mt5snopc7f" path="res://scenes/pistol/bullet_manager.tscn" id="7_cbvos"]
 [ext_resource type="PackedScene" uid="uid://d3t1edryk84ae" path="res://scenes/enemies/chasing_enemy.tscn" id="8_6a15r"]
 [ext_resource type="Texture2D" uid="uid://dxf4f14bk50pw" path="res://assets/basic terrain.aseprite" id="8_e7lc7"]
 [ext_resource type="Texture2D" uid="uid://bq525epq0b3b1" path="res://assets/health_bar_under.aseprite" id="10_v52fu"]
 [ext_resource type="Texture2D" uid="uid://d4g3tvkj47da6" path="res://assets/health_bar_progress.aseprite" id="11_m7287"]
+[ext_resource type="Texture2D" uid="uid://cx45c5xb05jf6" path="res://assets/pickups/axe.png" id="14_uahok"]
+[ext_resource type="Texture2D" uid="uid://cic7l3g4qold0" path="res://assets/pickups/key.png" id="15_orn3i"]
+[ext_resource type="Texture2D" uid="uid://e4mwq2y08ikt" path="res://assets/pickups/power cell.png" id="16_iamcp"]
+[ext_resource type="Texture2D" uid="uid://7r33qk0a7kc6" path="res://assets/pickups/torch.png" id="17_3brrd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_egowm"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -136,6 +141,7 @@ position = Vector2(272, 331)
 
 [node name="Box" type="StaticBody2D" parent="." groups=["Actionable"]]
 position = Vector2(817, 485)
+script = ExtResource("6_3d23b")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Box"]
@@ -161,7 +167,7 @@ position = Vector2(917, 496)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="UI"]
+[node name="HealthBar" type="TextureProgressBar" parent="UI"]
 offset_left = 17.0
 offset_top = 17.0
 offset_right = 155.0
@@ -172,6 +178,29 @@ texture_under = ExtResource("10_v52fu")
 texture_progress = ExtResource("11_m7287")
 texture_progress_offset = Vector2(41, 18)
 
+[node name="Pickups" type="VBoxContainer" parent="UI"]
+offset_left = 28.0
+offset_top = 107.0
+offset_right = 68.0
+offset_bottom = 247.0
+alignment = 1
+
+[node name="AxeContainer" type="TextureRect" parent="UI/Pickups"]
+layout_mode = 2
+texture = ExtResource("14_uahok")
+
+[node name="KeyContainer" type="TextureRect" parent="UI/Pickups"]
+layout_mode = 2
+texture = ExtResource("15_orn3i")
+
+[node name="PowercellContainer" type="TextureRect" parent="UI/Pickups"]
+layout_mode = 2
+texture = ExtResource("16_iamcp")
+
+[node name="TorchContainer" type="TextureRect" parent="UI/Pickups"]
+layout_mode = 2
+texture = ExtResource("17_3brrd")
+
 [node name="Paused" parent="UI" instance=ExtResource("3_w8wrl")]
 visible = false
 metadata/_edit_use_anchors_ = true
@@ -179,5 +208,5 @@ metadata/_edit_use_anchors_ = true
 [node name="SelectSfx" parent="." instance=ExtResource("4_7kf0b")]
 bus = &"Sound"
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="Darkness" type="CanvasModulate" parent="."]
 color = Color(0.0588235, 0.0196078, 0, 1)

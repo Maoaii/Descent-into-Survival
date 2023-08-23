@@ -176,7 +176,11 @@ func check_nearest_actionable() -> void:
 			next_nearest_actionable = area
 	
 	if next_nearest_actionable != nearest_actionable or not is_instance_valid(next_nearest_actionable):
+		if nearest_actionable != null:
+			nearest_actionable.get_parent().remove_highlight()
 		nearest_actionable = next_nearest_actionable
+		if nearest_actionable != null:
+			nearest_actionable.get_parent().highlight()
 
 
 func fire() -> void:
