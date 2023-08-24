@@ -35,6 +35,9 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 window/size/viewport_width=640
 window/size/viewport_height=480
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://assets/crosshairs/PNG/White/crosshair070.png"
+mouse_cursor/custom_image_hotspot=Vector2(32, 32)
+mouse_cursor/tooltip_position_offset=Vector2(2.08165e-12, 2.08165e-12)
 
 [editor_plugins]
 
