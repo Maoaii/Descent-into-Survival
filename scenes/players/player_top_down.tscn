@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://m03vwsnrma2p"]
+[gd_scene load_steps=13 format=3 uid="uid://m03vwsnrma2p"]
 
 [ext_resource type="Script" path="res://scenes/players/player_top_down.gd" id="1_2l78q"]
+[ext_resource type="Shader" path="res://scenes/players/player_top_down.gdshader" id="1_45xx1"]
 [ext_resource type="PackedScene" uid="uid://b8e5emsk0645y" path="res://scenes/pistol/bullet.tscn" id="2_6p7p2"]
 [ext_resource type="PackedScene" uid="uid://niepur7b0l2i" path="res://assets/player/protag.aseprite" id="3_elxt2"]
 [ext_resource type="PackedScene" uid="uid://kv3shvktt6ap" path="res://scenes/gameplay/light.tscn" id="4_tqqqq"]
 [ext_resource type="PackedScene" uid="uid://vt50pn6egjwn" path="res://scenes/components/health_component.tscn" id="5_y0svs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qaq0v"]
+shader = ExtResource("1_45xx1")
+shader_parameter/active = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffix3"]
 size = Vector2(24, 54)
@@ -13,7 +18,45 @@ size = Vector2(24, 54)
 radius = 12.0
 height = 44.0
 
+[sub_resource type="Animation" id="Animation_3mng7"]
+resource_name = "flash"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_gb6wg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hovuo"]
+_data = {
+"RESET": SubResource("Animation_gb6wg"),
+"flash": SubResource("Animation_3mng7")
+}
+
 [node name="PlayerTopDown" type="CharacterBody2D" groups=["Player"]]
+z_index = 1
 script = ExtResource("1_2l78q")
 nearest_actionable_debug = false
 collision_shape_debug = false
@@ -26,6 +69,7 @@ reload_time = 1
 action_time = 2
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("3_elxt2")]
+material = SubResource("ShaderMaterial_qaq0v")
 animation = &"IdleFront"
 frame_progress = 0.787673
 
@@ -55,6 +99,11 @@ one_shot = true
 
 [node name="StunTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hovuo")
+}
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_y0svs")]
 max_health = 5

@@ -18,3 +18,6 @@ res://scenes/main_menu/menu_options.gd
 res://scenes/paused/options.gd
 res://scenes/main_menu/main_menu.tscn
 res://scenes/paused/paused.tscn
+res://scenes/players/player_top_down.gdshader
+res://scenes/enemies/medusa_enemy.tscn
+res://scenes/enemies/chasing_enemy.tscn

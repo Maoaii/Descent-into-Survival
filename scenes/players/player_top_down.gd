@@ -46,6 +46,7 @@ var _state: int = States.IDLE
 var current_bullets: int
 var current_dir: Vector2 = Vector2.DOWN
 var last_dir: Vector2 = Vector2.DOWN
+var invincible: bool = false
 var nearest_actionable
 
 func _ready() -> void:
@@ -223,8 +224,15 @@ func stun(duration: float) -> void:
 	_state = States.STUNNED
 
 func hurt_player(damage: int) -> void:
+	if invincible:
+		return
 	health_component.take_damage(damage)
 	health_bar.value = health_component.current_health
+	
+	$AnimationPlayer.play("flash")
+	invincible = true
+	await  $AnimationPlayer.animation_finished
+	invincible = false
 
 func player_dead() -> void:
 	SceneChangingMachine.change_scene("res://scenes/gameplay/gameplay.tscn")
