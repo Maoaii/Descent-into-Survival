@@ -1,10 +1,11 @@
 res://scenes/main_menu/main_menu.tscn
 res://scenes/gameplay/collidable_tile_set.tres
 res://scenes/players/player_top_down.gdshader
+res://assets/ui/button_hover.tres
+res://assets/ui/button_pressed.tres
 res://scenes/gameplay/outline.gdshader
-res://scenes/gameplay/gameplay.tscn
-res://scenes/players/player_top_down.tscn
+res://scenes/main_menu/menu_options.gd
 res://scenes/settings/settings.tscn
+res://scenes/gameplay/gameplay.tscn
 res://scenes/paused/paused.tscn
-res://dialogues/balloon.tscn
-res://scenes/enemies/shooting_enemy.tscn
+res://scenes/settings/settings_controls.gd

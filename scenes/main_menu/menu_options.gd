@@ -1,4 +1,4 @@
-extends VFlowContainer
+extends VBoxContainer
 
 @export_file() var gameplay_scene: String
 @export_file() var settings_scene: String

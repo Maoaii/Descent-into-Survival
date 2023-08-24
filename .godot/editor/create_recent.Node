@@ -1,4 +1,8 @@
+VBoxContainer
+Container
+TextureButton
 TextureRect
+Button
 Timer
 AudioStreamPlayer2D
 AnimationPlayer
@@ -15,7 +19,6 @@ NavigationAgent2D
 CharacterBody2D
 Polygon2D
 CollisionPolygon2D
-VBoxContainer
 TextureProgressBar
 PointLight2D
 DirectionalLight2D
@@ -27,6 +30,3 @@ Node
 HSlider
 RigidBody2D
 ProgressBar
-StaticBody2D
-AnimatedSprite2D
-TextureButton

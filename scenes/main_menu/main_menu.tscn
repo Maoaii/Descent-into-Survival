@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://j87n4lychbt5"]
+[gd_scene load_steps=8 format=3 uid="uid://j87n4lychbt5"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/menu.gd" id="1_tsltd"]
 [ext_resource type="AudioStream" uid="uid://daoodcjqyipw" path="res://sound/Main_Theme.wav" id="2_0x04r"]
 [ext_resource type="Script" path="res://scenes/main_menu/menu_options.gd" id="2_bwpwi"]
+[ext_resource type="StyleBox" uid="uid://ca32raghhx8xm" path="res://assets/ui/button_hover.tres" id="5_udi22"]
 [ext_resource type="PackedScene" uid="uid://cee5dna3u27jf" path="res://assets/select_sfx.tscn" id="5_ugm6v"]
+[ext_resource type="StyleBox" uid="uid://dm6maxg1rl327" path="res://assets/ui/button_pressed.tres" id="6_ivkko"]
 [ext_resource type="Texture2D" uid="uid://d2wfgeow2l2d8" path="res://assets/title screen.png" id="6_u8lm7"]
 
 [node name="MainMenu" type="Control"]
@@ -13,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.00144, 1.00186)
 script = ExtResource("1_tsltd")
 music = ExtResource("2_0x04r")
 
@@ -49,17 +52,17 @@ theme_override_font_sizes/font_size = 32
 text = "Untitled"
 horizontal_alignment = 1
 
-[node name="MenuOptions" type="VFlowContainer" parent="." node_paths=PackedStringArray("shortcut_context")]
+[node name="MenuOptions" type="VBoxContainer" parent="." node_paths=PackedStringArray("shortcut_context")]
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -107.0
-offset_top = 161.0
-offset_right = -39.0
-offset_bottom = -114.0
+offset_left = -119.26
+offset_top = 141.736
+offset_right = -30.2603
+offset_bottom = -88.2636
 grow_horizontal = 2
 grow_vertical = 2
 shortcut_context = NodePath("Start")
@@ -70,27 +73,43 @@ settings_scene = "res://scenes/settings/settings.tscn"
 
 [node name="Start" type="Button" parent="MenuOptions"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/h_separation = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
-text = "Start"
+theme_override_styles/hover = ExtResource("5_udi22")
+theme_override_styles/pressed = ExtResource("6_ivkko")
+theme_override_styles/focus = ExtResource("5_udi22")
+text = "Play"
 flat = true
 
 [node name="Settings" type="Button" parent="MenuOptions"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = ExtResource("5_udi22")
+theme_override_styles/pressed = ExtResource("6_ivkko")
+theme_override_styles/focus = ExtResource("5_udi22")
 text = "Settings"
 flat = true
 
 [node name="Quit" type="Button" parent="MenuOptions"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
-text = "Quit"
+theme_override_styles/hover = ExtResource("5_udi22")
+theme_override_styles/pressed = ExtResource("6_ivkko")
+theme_override_styles/focus = ExtResource("5_udi22")
+text = "Quit Game"
 flat = true
 
 [node name="SelectSfx" parent="." instance=ExtResource("5_ugm6v")]
