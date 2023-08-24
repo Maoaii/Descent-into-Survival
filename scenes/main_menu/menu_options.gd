@@ -10,11 +10,15 @@ func _ready() -> void:
 		$Quit.hide()
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	SfxPlayer.stream = load("res://sound/sfx/Game Jam_Quit.wav")
+	SfxPlayer.play()
+	SceneChangingMachine.quit()
 
 func _on_settings_pressed() -> void:
 	SceneChangingMachine.change_scene(settings_scene)
 
 func _on_start_pressed() -> void:
 	MusicPlayer.stop()
+	SfxPlayer.stream = load("res://sound/sfx/Game Jam_Start.wav")
+	SfxPlayer.play()
 	SceneChangingMachine.change_scene(gameplay_scene)

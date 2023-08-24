@@ -1,5 +1,6 @@
-res://scenes/players
+res://addons/dialogue_manager
 res://scenes/autoloads
+res://scenes/players
 res://scenes/enemies
 res://scenes/gameplay
 res://assets/

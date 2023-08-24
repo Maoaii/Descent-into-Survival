@@ -31,6 +31,11 @@ enum States {
 @export_group("Actionable variables")
 @export_range(1, 10) var action_time: int = 3
 
+@export_group("Sound effects")
+@export_file(".wav") var footsteps: String
+@export_file(".wav") var footsteps2: String
+@export_file(".wav") var shooting: String
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interactable_collider: Area2D = $InteractableCollider
 @onready var action_timer: Timer = $ActionTimer
@@ -92,7 +97,17 @@ func _process(_delta: float) -> void:
 		$UI/BulletsLabel.text = "Bullets: " + str(current_bullets)
 	else:
 		$UI/BulletsLabel.text = "Reloading..."
+	
 
+func handle_sound_effects() -> void:
+	if _state == States.IDLE:
+		$SFXPlayer.stop()
+	if _state == States.RUNNING and $SFXPlayer.get_playback_position() <= 0:
+		var random = randi_range(0, 1)
+		if random == 0:
+			play_sound_effect(footsteps)
+		else:
+			play_sound_effect(footsteps2)
 
 func _physics_process(delta: float) -> void:
 	if not stun_timer.is_stopped():
@@ -119,7 +134,12 @@ func _physics_process(delta: float) -> void:
 	
 	update_sprite()
 	update_direction_collider()
+	handle_sound_effects()
 	move_and_slide()
+
+func play_sound_effect(sfx: String) -> void:
+	$SFXPlayer.stream = load(sfx)
+	$SFXPlayer.play()
 
 func handle_interaction() -> void:
 	if Input.is_action_pressed("interact") and nearest_actionable:

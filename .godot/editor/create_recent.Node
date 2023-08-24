@@ -1,9 +1,10 @@
+Timer
+AudioStreamPlayer2D
 AnimationPlayer
 ColorRect
 CanvasLayer
 Sprite2D
 CollisionShape2D
-Timer
 Area2D
 NavigationObstacle2D
 Marker2D
@@ -24,7 +25,6 @@ TileMap
 Node2D
 Node
 HSlider
-AudioStreamPlayer2D
 RigidBody2D
 ProgressBar
 StaticBody2D

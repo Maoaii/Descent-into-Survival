@@ -14,6 +14,8 @@ const EXPORT_CONFIG_METADATA_SECTION := "metadata"
 const SETTINGS_FILE := "user://settings.cfg"
 const CONFIG_SETTINGS_SECTION := "settings"
 
+var player_first_time_stunned: bool = false
+
 func _ready() -> void:
 	print_debug("Global ready")
 	Engine.max_fps = 60
@@ -80,3 +82,11 @@ func _input(event: InputEvent) -> void:
 			get_tree().call_group("debug_ui", "show")
 		else:
 			get_tree().call_group("debug_ui", "hide")
+
+func reset_dialogue_triggers() -> void:
+	player_first_time_stunned = false
+
+func player_stunned() -> void:
+	if not player_first_time_stunned:
+		player_first_time_stunned = true
+		DialogueManager.show_dialogue_balloon(load("res://dialogues/stunned.dialogue"), "start", 6)

@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://b62priuau6snp"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D"]
-volume_db = -10.0
+volume_db = -20.0
 bus = &"Music"

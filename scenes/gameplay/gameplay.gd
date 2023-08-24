@@ -4,9 +4,12 @@ extends Node2D
 
 
 func _ready():
+	await SfxPlayer.finished
 	if MusicPlayer.stream != music or MusicPlayer.get_playback_position() <= 0:
 		MusicPlayer.stream = music
 		MusicPlayer.play()
+	
+	Global.reset_dialogue_triggers()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("pause"):
