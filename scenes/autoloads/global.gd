@@ -84,7 +84,7 @@ func _input(event: InputEvent) -> void:
 			get_tree().call_group("debug_ui", "hide")
 
 func reset_dialogue_triggers() -> void:
-	player_first_time_stunned = false
+	print(player_first_time_stunned)
 
 func player_stunned() -> void:
 	if not player_first_time_stunned:

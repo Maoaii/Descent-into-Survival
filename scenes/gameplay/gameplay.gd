@@ -4,7 +4,9 @@ extends Node2D
 
 
 func _ready():
-	await SfxPlayer.finished
+	if SfxPlayer.get_playback_position() > 0:
+		await SfxPlayer.finished
+	
 	if MusicPlayer.stream != music or MusicPlayer.get_playback_position() <= 0:
 		MusicPlayer.stream = music
 		MusicPlayer.play()
