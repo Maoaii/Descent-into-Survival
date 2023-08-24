@@ -165,6 +165,10 @@ position = Vector2(917, 496)
 
 [node name="MedusaEnemy" parent="." instance=ExtResource("20_h6f1c")]
 position = Vector2(779, 385)
+state_debug = false
+
+[node name="ShootingEnemy" parent="." instance=ExtResource("21_mf2sl")]
+position = Vector2(543, 370)
 
 [node name="GameManager" parent="." instance=ExtResource("6_1gbjt")]
 
@@ -215,6 +219,3 @@ bus = &"Sound"
 
 [node name="Darkness" type="CanvasModulate" parent="."]
 color = Color(0.0588235, 0.0196078, 0, 1)
-
-[node name="ShootingEnemy" parent="." instance=ExtResource("21_mf2sl")]
-position = Vector2(543, 370)

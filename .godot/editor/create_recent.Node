@@ -1,3 +1,4 @@
+TextureRect
 Timer
 AudioStreamPlayer2D
 AnimationPlayer
@@ -15,7 +16,6 @@ CharacterBody2D
 Polygon2D
 CollisionPolygon2D
 VBoxContainer
-TextureRect
 TextureProgressBar
 PointLight2D
 DirectionalLight2D

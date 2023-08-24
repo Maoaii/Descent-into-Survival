@@ -58,6 +58,7 @@ _data = {
 [node name="PlayerTopDown" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 script = ExtResource("1_2l78q")
+state_debug = false
 nearest_actionable_debug = false
 collision_shape_debug = false
 has_acceleration = true

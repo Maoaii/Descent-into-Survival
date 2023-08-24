@@ -32,16 +32,22 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=480
+window/size/viewport_width=600
+window/size/viewport_height=360
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://assets/crosshairs/PNG/White/crosshair070.png"
 mouse_cursor/custom_image_hotspot=Vector2(32, 32)
 mouse_cursor/tooltip_position_offset=Vector2(2.08165e-12, 2.08165e-12)
+window/custom_image="res://assets/crosshairs/PNG/White/crosshair070.png"
+window/tooltip_position_offset=Vector2(2.08165e-12, 2.08165e-12)
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg")
+
+[gui]
+
+theme/custom_font="res://assets/fonts/alagard.ttf"
 
 [input]
 
