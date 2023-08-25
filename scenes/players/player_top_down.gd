@@ -153,10 +153,28 @@ func _physics_process(delta: float) -> void:
 	if not action_timer.is_stopped():
 		_state = States.INTERACTING
 	
+	if has_torch:
+		$Light.texture_scale = 1.5
+	else:
+		$Light.texture_scale = 0.75
+	
+	if has_torch and Input.is_action_just_pressed("drop_torch"):
+		drop_torch()
+	
 	update_sprite()
 	update_direction_collider()
 	handle_sound_effects()
 	move_and_slide()
+
+func drop_torch() -> void:
+	has_torch = false
+	
+	var torch = load("res://scenes/pickups/torch.tscn")
+	var torch_instance = torch.instantiate()
+	var direction_to_mouse = position.direction_to(get_global_mouse_position()).normalized()
+	torch_instance.global_position = global_position + (direction_to_mouse * 64)
+	get_tree().root.add_child(torch_instance)
+
 
 func play_sound_effect(sfx: String) -> void:
 	$SFXPlayer.stream = load(sfx)

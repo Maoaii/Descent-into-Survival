@@ -92,6 +92,7 @@ shape = SubResource("CapsuleShape2D_xn7lm")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Light" parent="." instance=ExtResource("4_tqqqq")]
+texture_scale = 0.75
 
 [node name="ActionTimer" type="Timer" parent="."]
 
