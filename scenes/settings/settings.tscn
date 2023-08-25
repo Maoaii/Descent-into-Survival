@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpicmplffpula"]
+[gd_scene load_steps=10 format=3 uid="uid://dpicmplffpula"]
 
+[ext_resource type="Texture2D" uid="uid://clm05eru4064n" path="res://assets/menu background.png" id="1_7br80"]
 [ext_resource type="Script" path="res://scenes/settings/settings_controls.gd" id="1_n5jcg"]
 [ext_resource type="StyleBox" uid="uid://dm6maxg1rl327" path="res://assets/ui/button_pressed.tres" id="2_h661q"]
 [ext_resource type="Script" path="res://scenes/settings/fullscreen_toggle.gd" id="2_xaxe3"]
@@ -35,14 +36,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.501961, 0.223529, 0.27451, 1)
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.65098, 0.65098, 0.65098, 1)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_7br80")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -58,6 +57,22 @@ theme_type_variation = &"HeaderLarge"
 theme_override_font_sizes/font_size = 32
 text = "Settings"
 horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 89.0
+offset_right = 385.0
+offset_bottom = 289.0
+color = Color(0.317647, 0.329412, 0.341176, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 96.0
+offset_right = 379.0
+offset_bottom = 282.0
+color = Color(0.4, 0.486275, 0.517647, 1)
 
 [node name="SettingsControls" type="VBoxContainer" parent="."]
 layout_mode = 1

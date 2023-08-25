@@ -1,12 +1,12 @@
+ColorRect
+TextureRect
 VBoxContainer
 Container
 TextureButton
-TextureRect
 Button
 Timer
 AudioStreamPlayer2D
 AnimationPlayer
-ColorRect
 CanvasLayer
 Sprite2D
 CollisionShape2D
