@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=28 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="TileSet" uid="uid://14t0onj3ro66" path="res://scenes/gameplay/collidable_tile_set.tres" id="2_5l3uv"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://7r33qk0a7kc6" path="res://assets/pickups/torch.png" id="17_3brrd"]
 [ext_resource type="PackedScene" uid="uid://duv3eojo3n7sd" path="res://scenes/enemies/medusa_enemy.tscn" id="20_h6f1c"]
 [ext_resource type="PackedScene" uid="uid://cd76nvenccyht" path="res://scenes/enemies/shooting_enemy.tscn" id="21_mf2sl"]
+[ext_resource type="PackedScene" uid="uid://dn0qc1p8p7el2" path="res://scenes/death_screen/death_screen.tscn" id="21_mqqvi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_egowm"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -128,6 +129,9 @@ size = Vector2(128, 126)
 script = ExtResource("1_thqv1")
 music = ExtResource("2_ty0s7")
 
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0.0588235, 0.0196078, 0, 1)
+
 [node name="CollidablesTileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_5l3uv")
 format = 2
@@ -210,12 +214,12 @@ texture = ExtResource("16_iamcp")
 layout_mode = 2
 texture = ExtResource("17_3brrd")
 
+[node name="DeathScreen" parent="UI" instance=ExtResource("21_mqqvi")]
+visible = false
+
 [node name="Paused" parent="UI" instance=ExtResource("3_w8wrl")]
 visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="SelectSfx" parent="." instance=ExtResource("4_7kf0b")]
 bus = &"Sound"
-
-[node name="Darkness" type="CanvasModulate" parent="."]
-color = Color(0.0588235, 0.0196078, 0, 1)

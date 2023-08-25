@@ -2,6 +2,7 @@ extends Node2D
 
 @export var music: AudioStreamWAV
 
+var dead: bool = false
 
 func _ready():
 	if SfxPlayer.get_playback_position() > 0:
@@ -14,10 +15,15 @@ func _ready():
 	Global.reset_dialogue_triggers()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("pause"):
+	if not dead and event.is_action_released("pause"):
 		call_deferred("_pause")
 
 
 func _pause() -> void:
 	$UI/Paused.pause()
 	get_tree().paused = true
+
+func _death() -> void:
+	$UI/DeathScreen.appear()
+	get_tree().paused = true
+	dead = true

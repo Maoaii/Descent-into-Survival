@@ -27,6 +27,7 @@ enum States {
 @export_range(0.01, 100) var shoot_cooldown: float = 1.0
 @export var magazine_size: int = 10
 @export var reload_time: int = 2
+@export var max_recoil: float = 10.0
 
 @export_group("Actionable variables")
 @export_range(1, 10) var action_time: int = 3
@@ -52,9 +53,12 @@ var current_bullets: int
 var current_dir: Vector2 = Vector2.DOWN
 var last_dir: Vector2 = Vector2.DOWN
 var invincible: bool = false
+var current_recoil: float = 0.0
 var nearest_actionable
+var dead: bool = false
 
 func _ready() -> void:
+	$AnimationPlayer.play("RESET")
 	check_debugs()
 	
 	current_bullets = magazine_size
@@ -77,6 +81,8 @@ func check_debugs():
 	get_tree().debug_collisions_hint = collision_shape_debug
 
 func _process(_delta: float) -> void:
+	if dead:
+		return
 	if state_debug:
 		$UI/StateLabel.text = "State: " + States.find_key(_state)
 	if nearest_actionable_debug:
@@ -110,8 +116,14 @@ func handle_sound_effects() -> void:
 			play_sound_effect(footsteps2)
 
 func _physics_process(delta: float) -> void:
+	if dead:
+		return
 	if not stun_timer.is_stopped():
 		return
+	
+	if not Input.is_action_pressed("fire"):
+		var recoil_increment = max_recoil * 0.05
+		current_recoil = clamp(current_recoil - recoil_increment, 0.0, max_recoil)
 	
 	current_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
 	
@@ -225,11 +237,21 @@ func fire() -> void:
 	shoot_cooldown_timer.start()
 	current_bullets -= 1
 	
+	
 	var bullet_instance: Area2D = bullet.instantiate()
 	var target = get_local_mouse_position()
 	var direction_to_mouse = end_of_gun.position.direction_to(target).normalized()
 	
-	emit_signal("bullet_fired", bullet_instance, end_of_gun.global_position, direction_to_mouse)
+	var recoil_degree_max: float = current_recoil * 0.5
+	var recoil_radians_actual: float = deg_to_rad(randf_range(-recoil_degree_max, recoil_degree_max))
+	var actual_bullet_direction: Vector2 = direction_to_mouse.rotated(recoil_radians_actual)
+	var recoil_increment: float = max_recoil * 0.1
+	
+	emit_signal("bullet_fired", bullet_instance, end_of_gun.global_position, actual_bullet_direction)
+	
+	# Add recoil
+	
+	current_recoil = clamp(current_recoil + recoil_increment, 0.0, max_recoil)
 
 func reload_gun() -> void:
 	current_bullets = magazine_size
@@ -255,4 +277,6 @@ func hurt_player(damage: int) -> void:
 	invincible = false
 
 func player_dead() -> void:
-	SceneChangingMachine.change_scene("res://scenes/gameplay/gameplay.tscn")
+	dead = true
+	Global.reset_dialogue_triggers()
+	get_parent()._death()
