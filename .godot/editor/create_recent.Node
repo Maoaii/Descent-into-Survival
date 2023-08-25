@@ -1,3 +1,4 @@
+AudioStreamPlayer2D
 Sprite2D
 Area2D
 AnimationPlayer
@@ -11,7 +12,6 @@ TextureRect
 Container
 TextureButton
 Timer
-AudioStreamPlayer2D
 CanvasLayer
 NavigationObstacle2D
 Marker2D

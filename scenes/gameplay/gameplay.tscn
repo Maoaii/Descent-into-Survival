@@ -177,7 +177,7 @@ position = Vector2(373, 235)
 position = Vector2(373, 319)
 
 [node name="Powercell" parent="." instance=ExtResource("27_bqrl7")]
-position = Vector2(284, 350)
+position = Vector2(285, 349)
 
 [node name="PlayerTopDown" parent="." instance=ExtResource("2_387ag")]
 position = Vector2(208, 261)

@@ -113,6 +113,11 @@ libraries = {
 volume_db = -10.0
 bus = &"Sound"
 
+[node name="SFXShooting" type="AudioStreamPlayer2D" parent="."]
+volume_db = -15.0
+pitch_scale = 1.1
+bus = &"Sound"
+
 [node name="HealthComponent" parent="." instance=ExtResource("5_y0svs")]
 max_health = 5
 

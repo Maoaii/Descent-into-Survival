@@ -102,6 +102,8 @@ func _process(_delta: float) -> void:
 		fire()
 	if Input.is_action_just_pressed("reload") and reload_timer.is_stopped() and current_bullets != magazine_size:
 		reload_timer.start()
+		$SFXShooting.stream = load("res://sound/sfx/Game Jam_Reload.wav")
+		$SFXShooting.play()
 	
 	check_nearest_actionable()
 	handle_interaction()
@@ -245,7 +247,10 @@ func fire() -> void:
 	current_bullets -= 1
 	ammo_bar.value = current_bullets
 	
-	
+	var random_pitch = randf_range(0.5, 2.0)
+	$SFXShooting.pitch_scale = random_pitch
+	$SFXShooting.stream = load("res://sound/sfx/Game Jam_Gun.wav")
+	$SFXShooting.play()
 	
 	var bullet_instance: Area2D = bullet.instantiate()
 	var target = get_local_mouse_position()
@@ -257,8 +262,6 @@ func fire() -> void:
 	var recoil_increment: float = max_recoil * 0.1
 	
 	emit_signal("bullet_fired", bullet_instance, end_of_gun.global_position, actual_bullet_direction)
-	
-	# Add recoil
 	
 	current_recoil = clamp(current_recoil + recoil_increment, 0.0, max_recoil)
 
@@ -292,7 +295,6 @@ func player_dead() -> void:
 	get_parent()._death()
 
 func pickup(object: Pickup) -> void:
-	print(object.name)
 	if object.name == "Axe":
 		has_axe = true
 		get_tree().get_first_node_in_group("Axe").play("Active")

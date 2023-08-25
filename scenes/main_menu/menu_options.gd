@@ -15,6 +15,8 @@ func _on_quit_pressed() -> void:
 	SceneChangingMachine.quit()
 
 func _on_settings_pressed() -> void:
+	SfxPlayer.stream = load("res://sound/sfx/Game Jam_Start.wav")
+	SfxPlayer.play()
 	SceneChangingMachine.change_scene(settings_scene)
 
 func _on_start_pressed() -> void:

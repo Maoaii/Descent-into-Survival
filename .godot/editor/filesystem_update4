@@ -15,3 +15,11 @@ res://scenes/players/player_top_down.gd
 res://scenes/pickups/key.tscn
 res://scenes/pickups/powercell.tscn
 res://scenes/pickups/torch.tscn
+res://scenes/enemies/shooting_enemy.tscn
+res://scenes/enemies/shooting_enemy.gd
+res://scenes/paused/options.gd
+res://scenes/settings/settings.tscn
+res://scenes/settings/back_button.gd
+res://scenes/main_menu/main_menu.tscn
+res://scenes/main_menu/menu_options.gd
+res://scenes/autoloads/scene_changing_machine.tscn
