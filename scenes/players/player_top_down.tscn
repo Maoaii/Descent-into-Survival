@@ -66,6 +66,7 @@ acceleration = 5.0
 deacceleration = 10.0
 bullet = ExtResource("2_6p7p2")
 shoot_cooldown = 0.3
+magazine_size = 8
 reload_time = 1
 action_time = 2
 footsteps = "res://sound/sfx/Game Jam_footsteps_cropped.wav"
@@ -161,15 +162,6 @@ offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Actionable"
-horizontal_alignment = 1
-
-[node name="BulletsLabel" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = -22.0
-offset_top = -72.0
-offset_right = 63.0
-offset_bottom = -46.0
-text = "Bullets:"
 horizontal_alignment = 1
 
 [node name="ActionBar" type="ProgressBar" parent="UI"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=30 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="TileSet" uid="uid://14t0onj3ro66" path="res://scenes/gameplay/collidable_tile_set.tres" id="2_5l3uv"]
@@ -17,8 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://d4g3tvkj47da6" path="res://assets/health_bar_progress.aseprite" id="11_m7287"]
 [ext_resource type="Texture2D" uid="uid://cx45c5xb05jf6" path="res://assets/pickups/axe.png" id="14_uahok"]
 [ext_resource type="Texture2D" uid="uid://cic7l3g4qold0" path="res://assets/pickups/key.png" id="15_orn3i"]
+[ext_resource type="Texture2D" uid="uid://cdhreevjnyt2w" path="res://assets/ammo_bar_under.aseprite" id="16_desdo"]
 [ext_resource type="Texture2D" uid="uid://e4mwq2y08ikt" path="res://assets/pickups/power cell.png" id="16_iamcp"]
 [ext_resource type="Texture2D" uid="uid://7r33qk0a7kc6" path="res://assets/pickups/torch.png" id="17_3brrd"]
+[ext_resource type="Texture2D" uid="uid://flns5wkinxcv" path="res://assets/ammo_bar.aseprite" id="17_5qlbt"]
 [ext_resource type="PackedScene" uid="uid://duv3eojo3n7sd" path="res://scenes/enemies/medusa_enemy.tscn" id="20_h6f1c"]
 [ext_resource type="PackedScene" uid="uid://cd76nvenccyht" path="res://scenes/enemies/shooting_enemy.tscn" id="21_mf2sl"]
 [ext_resource type="PackedScene" uid="uid://dn0qc1p8p7el2" path="res://scenes/death_screen/death_screen.tscn" id="21_mqqvi"]
@@ -190,6 +192,16 @@ value = 5.0
 texture_under = ExtResource("10_v52fu")
 texture_progress = ExtResource("11_m7287")
 texture_progress_offset = Vector2(41, 18)
+
+[node name="AmmoBar" type="TextureProgressBar" parent="UI" groups=["AmmoBar"]]
+offset_left = 50.0
+offset_top = 55.0
+offset_right = 144.0
+offset_bottom = 79.0
+max_value = 8.0
+value = 8.0
+texture_under = ExtResource("16_desdo")
+texture_progress = ExtResource("17_5qlbt")
 
 [node name="Pickups" type="VBoxContainer" parent="UI"]
 offset_left = 28.0

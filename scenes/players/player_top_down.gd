@@ -48,6 +48,7 @@ enum States {
 @onready var health_component: HealthComponent = $HealthComponent
 
 var health_bar: TextureProgressBar
+var ammo_bar: TextureProgressBar
 var _state: int = States.IDLE
 var current_bullets: int
 var current_dir: Vector2 = Vector2.DOWN
@@ -73,6 +74,8 @@ func _ready() -> void:
 	health_bar = get_tree().get_first_node_in_group("HealthBar")
 	health_component.current_health = health_component.max_health
 	health_component.health_depleted.connect(player_dead)
+	
+	ammo_bar = get_tree().get_first_node_in_group("AmmoBar")
 
 
 func check_debugs():
@@ -99,11 +102,11 @@ func _process(_delta: float) -> void:
 	check_nearest_actionable()
 	handle_interaction()
 	
-	if reload_timer.is_stopped():
-		$UI/BulletsLabel.text = "Bullets: " + str(current_bullets)
-	else:
-		$UI/BulletsLabel.text = "Reloading..."
-	
+	if not reload_timer.is_stopped():
+		ammo_bar.value = remap_range((reload_timer.wait_time - reload_timer.time_left), 0, reload_timer.wait_time, 0, 8)
+
+func remap_range(value, InputA, InputB, OutputA, OutputB):
+	return(value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA
 
 func handle_sound_effects() -> void:
 	if _state == States.IDLE:
@@ -236,6 +239,8 @@ func fire() -> void:
 		return
 	shoot_cooldown_timer.start()
 	current_bullets -= 1
+	ammo_bar.value = current_bullets
+	
 	
 	
 	var bullet_instance: Area2D = bullet.instantiate()
@@ -255,6 +260,7 @@ func fire() -> void:
 
 func reload_gun() -> void:
 	current_bullets = magazine_size
+	ammo_bar.value = current_bullets
 
 
 func _on_reload_timer_timeout():
