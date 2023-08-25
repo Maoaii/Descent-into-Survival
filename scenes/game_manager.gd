@@ -8,3 +8,5 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	
 	player.bullet_fired.connect(bullet_manager.handle_bullet_spawned)
+
+

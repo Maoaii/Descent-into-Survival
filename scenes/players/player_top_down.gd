@@ -57,6 +57,10 @@ var invincible: bool = false
 var current_recoil: float = 0.0
 var nearest_actionable
 var dead: bool = false
+var has_axe: bool = false
+var has_powercell: bool = false
+var has_key: bool = false
+var has_torch: bool = false
 
 func _ready() -> void:
 	$AnimationPlayer.play("RESET")
@@ -106,7 +110,7 @@ func _process(_delta: float) -> void:
 		ammo_bar.value = remap_range((reload_timer.wait_time - reload_timer.time_left), 0, reload_timer.wait_time, 0, 8)
 
 func remap_range(value, InputA, InputB, OutputA, OutputB):
-	return(value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA
+	return (value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA
 
 func handle_sound_effects() -> void:
 	if _state == States.IDLE:
@@ -286,3 +290,18 @@ func player_dead() -> void:
 	dead = true
 	Global.reset_dialogue_triggers()
 	get_parent()._death()
+
+func pickup(object: Pickup) -> void:
+	print(object.name)
+	if object.name == "Axe":
+		has_axe = true
+		get_tree().get_first_node_in_group("Axe").play("Active")
+	elif object.name == "Powercell":
+		has_powercell = true
+		get_tree().get_first_node_in_group("Powercell").play("Active")
+	elif object.name == "Key":
+		has_key = true
+		get_tree().get_first_node_in_group("Key").play("Active")
+	elif object.name == "Torch":
+		has_torch = true
+		get_tree().get_first_node_in_group("Torch").play("Active")
