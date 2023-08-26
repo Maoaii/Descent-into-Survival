@@ -63,6 +63,7 @@ var has_key: bool = false
 var has_torch: bool = false
 var game_won: bool = false
 var spaceship
+var first_actionable: bool = false
 
 func _ready() -> void:
 	$AnimationPlayer.play("RESET")
@@ -90,6 +91,10 @@ func check_debugs():
 	get_tree().debug_collisions_hint = collision_shape_debug
 
 func _process(_delta: float) -> void:
+	if first_actionable:
+		DialogueManager.show_dialogue_balloon(load("res://dialogues/interactable.dialogue"), "start", 4)
+		first_actionable = false
+	
 	if game_won:
 		global_position = spaceship.global_position
 		return
@@ -258,6 +263,9 @@ func check_nearest_actionable() -> void:
 		nearest_actionable = next_nearest_actionable
 		if nearest_actionable != null:
 			nearest_actionable.get_parent().highlight()
+			
+			if not first_actionable:
+				first_actionable = true
 
 
 func fire() -> void:

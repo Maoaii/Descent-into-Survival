@@ -5,6 +5,8 @@ extends Node2D
 var dead: bool = false
 
 func _ready():
+	DialogueManager.show_dialogue_balloon(load("res://dialogues/game_start.dialogue"), "start", 8)
+	
 	if SfxPlayer.get_playback_position() > 0:
 		await SfxPlayer.finished
 	

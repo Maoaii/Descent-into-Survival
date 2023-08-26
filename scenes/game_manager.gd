@@ -50,3 +50,4 @@ func _on_end_zone_body_entered(body):
 		get_tree().get_first_node_in_group("LeftMarker").start_spawning()
 		get_tree().get_first_node_in_group("MiddleMarker").start_spawning()
 		get_tree().get_first_node_in_group("RightMarker").start_spawning()
+		DialogueManager.show_dialogue_balloon(load("res://dialogues/coming.dialogue"), "start", 4)
