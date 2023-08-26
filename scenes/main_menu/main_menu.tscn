@@ -42,14 +42,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -160.0
-offset_top = 113.0
-offset_right = 20.0
-offset_bottom = 146.0
+offset_left = -166.193
+offset_top = 110.794
+offset_right = 13.8073
+offset_bottom = 176.794
 grow_horizontal = 2
 theme_type_variation = &"HeaderLarge"
 theme_override_font_sizes/font_size = 32
-text = "Untitled"
+text = "Descent into
+Survival"
 horizontal_alignment = 1
 
 [node name="MenuOptions" type="VBoxContainer" parent="." node_paths=PackedStringArray("shortcut_context")]
@@ -59,10 +60,10 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -119.26
-offset_top = 141.736
-offset_right = -30.2603
-offset_bottom = -88.2636
+offset_left = -131.243
+offset_top = 165.692
+offset_right = -42.2433
+offset_bottom = -64.3078
 grow_horizontal = 2
 grow_vertical = 2
 shortcut_context = NodePath("Start")

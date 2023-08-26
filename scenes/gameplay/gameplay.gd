@@ -27,5 +27,6 @@ func _pause() -> void:
 
 func _death() -> void:
 	$UI/DeathScreen.appear()
+	$UI/Paused.dead = true
 	get_tree().paused = true
 	dead = true

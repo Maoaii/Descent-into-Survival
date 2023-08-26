@@ -338,7 +338,7 @@ stream = ExtResource("31_cri1g")
 bus = &"Sound"
 
 [node name="ChasingEnemy" parent="." instance=ExtResource("32_wu03h")]
-position = Vector2(410, 530)
+position = Vector2(448, 530)
 
 [node name="ShootingEnemy" parent="." instance=ExtResource("33_08b50")]
 position = Vector2(431, -308)

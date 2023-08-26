@@ -30,3 +30,6 @@ res://scenes/enemies/medusa_enemy.tscn
 res://scenes/enemies/shooting_enemy.tscn
 res://scenes/autoloads/dialogue.tscn
 res://addons/dialogue_manager/dialogue_manager.gd
+res://scenes/main_menu/main_menu.tscn
+res://scenes/death_screen/death_screen.tscn
+res://scenes/paused/paused.gd

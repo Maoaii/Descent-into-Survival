@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	if not exit_gate_opened and used_axe and used_key and used_powercell:
 		get_tree().get_first_node_in_group("ExitGate").queue_free()
 		exit_gate_opened = true
