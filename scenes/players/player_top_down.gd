@@ -119,7 +119,7 @@ func _process(_delta: float) -> void:
 	handle_interaction()
 	
 	if not reload_timer.is_stopped():
-		ammo_bar.value = remap_range((reload_timer.wait_time - reload_timer.time_left), 0, reload_timer.wait_time, 0, 8)
+		ammo_bar.value = remap_range((reload_timer.wait_time - reload_timer.time_left), 0, reload_timer.wait_time, current_bullets, 8)
 
 func remap_range(value, InputA, InputB, OutputA, OutputB):
 	return (value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA

@@ -217,7 +217,6 @@ position = Vector2(-8, 4)
 shape = SubResource("RectangleShape2D_cnyel")
 
 [node name="FirstGate" type="StaticBody2D" parent="." groups=["FirstGate"]]
-visible = false
 position = Vector2(322, 321)
 
 [node name="Sprite2D" parent="FirstGate" instance=ExtResource("19_gwp45")]
@@ -229,7 +228,6 @@ position = Vector2(-20, -17)
 shape = SubResource("RectangleShape2D_17r8w")
 
 [node name="SecondGate" type="StaticBody2D" parent="." groups=["SecondGate"]]
-visible = false
 position = Vector2(313, -80)
 
 [node name="Sprite2D" parent="SecondGate" instance=ExtResource("19_gwp45")]
@@ -240,7 +238,6 @@ position = Vector2(-8, -30.25)
 shape = SubResource("RectangleShape2D_8abk0")
 
 [node name="ThirdGate" type="StaticBody2D" parent="." groups=["ThirdGate"]]
-visible = false
 position = Vector2(312, -495)
 
 [node name="Sprite2D" parent="ThirdGate" instance=ExtResource("19_gwp45")]
@@ -251,16 +248,16 @@ position = Vector2(-8, -32)
 shape = SubResource("RectangleShape2D_bu1bv")
 
 [node name="Axe" parent="." instance=ExtResource("22_gbm23")]
-position = Vector2(302, 100)
+position = Vector2(302, 45)
 
 [node name="Key" parent="." instance=ExtResource("23_mfl0m")]
-position = Vector2(392, 434)
+position = Vector2(309, 407)
 
 [node name="Powercell" parent="." instance=ExtResource("24_ee3y4")]
-position = Vector2(153, -315)
+position = Vector2(307, -409)
 
 [node name="Torch" parent="." instance=ExtResource("28_s5e5v")]
-position = Vector2(302, 501)
+position = Vector2(302, 588)
 
 [node name="EndZone" type="Area2D" parent="."]
 
@@ -269,13 +266,13 @@ position = Vector2(309, -831)
 shape = SubResource("RectangleShape2D_0fpkm")
 
 [node name="LeftMarker" parent="." groups=["LeftMarker"] instance=ExtResource("27_u3bj3")]
-position = Vector2(61, -641)
+position = Vector2(82, -751)
 
 [node name="MiddleMarker" parent="." groups=["MiddleMarker"] instance=ExtResource("27_u3bj3")]
-position = Vector2(306, -635)
+position = Vector2(313, -726)
 
 [node name="RightMarker" parent="." groups=["RightMarker"] instance=ExtResource("27_u3bj3")]
-position = Vector2(533, -640)
+position = Vector2(549, -754)
 
 [node name="GameManager" parent="." instance=ExtResource("6_1gbjt")]
 
@@ -342,13 +339,19 @@ stream = ExtResource("31_cri1g")
 bus = &"Sound"
 
 [node name="ChasingEnemy" parent="." instance=ExtResource("32_wu03h")]
-position = Vector2(448, 530)
+position = Vector2(346, 458)
 
 [node name="ShootingEnemy" parent="." instance=ExtResource("33_08b50")]
-position = Vector2(431, -308)
+position = Vector2(522, -403)
 
 [node name="MedusaEnemy" parent="." instance=ExtResource("34_eovx5")]
-position = Vector2(502, 44)
+position = Vector2(502, 27)
+
+[node name="ChasingEnemy2" parent="." instance=ExtResource("32_wu03h")]
+position = Vector2(180, 9)
+
+[node name="MedusaEnemy2" parent="." instance=ExtResource("34_eovx5")]
+position = Vector2(152, -399)
 
 [connection signal="body_entered" from="Spaceship" to="Spaceship" method="_on_body_entered"]
 [connection signal="timeout" from="Spaceship/Timer" to="Spaceship" method="_on_timer_timeout"]

@@ -62,14 +62,14 @@ script = ExtResource("1_2l78q")
 state_debug = false
 nearest_actionable_debug = false
 collision_shape_debug = false
+speed = 180.0
 has_acceleration = true
 acceleration = 5.0
 deacceleration = 10.0
 bullet = ExtResource("2_6p7p2")
-shoot_cooldown = 0.3
+shoot_cooldown = 0.25
 magazine_size = 8
 reload_time = 1
-action_time = 2
 footsteps = "res://sound/sfx/Game Jam_footsteps_cropped.wav"
 footsteps2 = "res://sound/sfx/Game Jam_footsteps 2_cropped.wav"
 
