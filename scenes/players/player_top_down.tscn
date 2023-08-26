@@ -185,4 +185,5 @@ grow_vertical = 2
 max_value = 3.0
 show_percentage = false
 
+[connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

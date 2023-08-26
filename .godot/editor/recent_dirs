@@ -1,3 +1,5 @@
+res://scenes/gameplay
+res://scenes/interactables
 res://scenes/pickups
 res://scenes/death_screen
 res://assets
@@ -10,7 +12,6 @@ res://addons/dialogue_manager
 res://scenes/autoloads
 res://scenes/players
 res://scenes/enemies
-res://scenes/gameplay
 res://assets/
 res://scenes/components
 /Applications/Aseprite.app/Contents/MacOS

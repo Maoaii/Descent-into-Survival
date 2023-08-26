@@ -325,3 +325,8 @@ func pickup(object: Pickup) -> void:
 	elif object.name == "Torch":
 		has_torch = true
 		get_tree().get_first_node_in_group("Torch").play("Active")
+
+
+func _on_action_timer_timeout():
+	if nearest_actionable.get_parent().name == "ExitGate" and has_axe:
+		nearest_actionable.get_parent().release()
