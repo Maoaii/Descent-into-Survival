@@ -14,7 +14,9 @@ config/name="Brackey's"
 config/tags=PackedStringArray("work_in_progress")
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://assets/icon.png"
+config/icon="res://assets/title screen.png"
+config/macos_native_icon="res://assets/title screen.png"
+config/windows_native_icon="res://assets/title screen.png"
 
 [aseprite_importers]
 

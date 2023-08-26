@@ -1,12 +1,14 @@
+/Users/lucas/Documents/Godot/Brackeys2023.2/exports/windows
+/Users/lucas/Documents/Godot/Brackeys2023.2/exports/macos
+/Users/lucas/Documents/Godot/Brackeys2023.2/exports/linux
+/Users/lucas/Documents/Godot/Brackeys2023.2/exports/web
+res://assets
 res://scenes/gameplay
 res://scenes/enemies
 res://scenes/interactables
 res://scenes/pickups
 res://scenes/death_screen
-res://assets
 res://assets/ui
-/Users/lucas/Documents/Godot/Brackeys2023.2/exports
-/Users/lucas/Documents/Godot/Brackeys2023.2/exports/web
 res://assets/fonts
 res://assets/crosshairs/PNG/White
 res://addons/dialogue_manager

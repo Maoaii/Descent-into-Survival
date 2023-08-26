@@ -154,7 +154,6 @@ script = ExtResource("1_thqv1")
 music = ExtResource("2_ty0s7")
 
 [node name="Darkness" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0588235, 0.0196078, 0, 1)
 
 [node name="CollidablesTileMap" type="TileMap" parent="."]
