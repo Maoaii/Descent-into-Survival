@@ -61,6 +61,8 @@ var has_axe: bool = false
 var has_powercell: bool = false
 var has_key: bool = false
 var has_torch: bool = false
+var game_won: bool = false
+var spaceship
 
 func _ready() -> void:
 	$AnimationPlayer.play("RESET")
@@ -88,6 +90,9 @@ func check_debugs():
 	get_tree().debug_collisions_hint = collision_shape_debug
 
 func _process(_delta: float) -> void:
+	if game_won:
+		global_position = spaceship.global_position
+		return
 	if dead:
 		return
 	if state_debug:
@@ -125,7 +130,7 @@ func handle_sound_effects() -> void:
 			play_sound_effect(footsteps2)
 
 func _physics_process(delta: float) -> void:
-	if dead:
+	if dead or game_won:
 		return
 	if not stun_timer.is_stopped():
 		return
@@ -340,3 +345,9 @@ func _on_action_timer_timeout():
 		nearest_actionable.get_parent().release()
 		has_powercell = false
 		get_tree().get_first_node_in_group("GameManager").set_used_powercell()
+
+func set_game_won(pos):
+	hide()
+	invincible = true
+	game_won = true
+	spaceship = pos

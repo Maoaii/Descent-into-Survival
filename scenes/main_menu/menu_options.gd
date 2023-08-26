@@ -24,3 +24,11 @@ func _on_start_pressed() -> void:
 	SfxPlayer.stream = load("res://sound/sfx/Game Jam_Start.wav")
 	SfxPlayer.play()
 	SceneChangingMachine.change_scene(gameplay_scene)
+
+
+func _on_main_menu_pressed():
+	var root = get_tree().get_root().get_tree()
+	root.paused = false
+	SceneChangingMachine.change_scene(Global.SCENE_MAIN_MENU)
+	SfxPlayer.stream = load("res://sound/sfx/Game Jam_Quit.wav")
+	SfxPlayer.play()

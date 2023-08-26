@@ -13,3 +13,9 @@ res://scenes/interactables/key_panel.gd
 res://scenes/interactables/powercell_panel.gd
 res://scenes/gameplay/interactable.gd
 res://scenes/players/player_top_down.gd
+res://scenes/players/player_top_down.tscn
+res://scenes/gameplay/Spaceship.gd
+res://scenes/pickups/torch.tscn
+res://scenes/win_screen/win_screen.tscn
+res://scenes/main_menu/menu_options.gd
+res://scenes/paused/paused.tscn

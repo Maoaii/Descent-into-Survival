@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bdnyglk1i1cxl"]
+[gd_scene load_steps=40 format=3 uid="uid://bdnyglk1i1cxl"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_thqv1"]
 [ext_resource type="TileSet" uid="uid://14t0onj3ro66" path="res://scenes/gameplay/collidable_tile_set.tres" id="2_5l3uv"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cko02oljhiby" path="res://scenes/paused/paused.tscn" id="3_w8wrl"]
 [ext_resource type="PackedScene" uid="uid://cee5dna3u27jf" path="res://assets/select_sfx.tscn" id="4_7kf0b"]
 [ext_resource type="PackedScene" uid="uid://d3lbyd1mnvwm4" path="res://scenes/game_manager.tscn" id="6_1gbjt"]
+[ext_resource type="Script" path="res://scenes/gameplay/Spaceship.gd" id="6_cc4ul"]
 [ext_resource type="PackedScene" uid="uid://bt2mt5snopc7f" path="res://scenes/pistol/bullet_manager.tscn" id="7_cbvos"]
 [ext_resource type="Texture2D" uid="uid://dxf4f14bk50pw" path="res://assets/basic terrain.aseprite" id="8_e7lc7"]
+[ext_resource type="PackedScene" uid="uid://kv3shvktt6ap" path="res://scenes/gameplay/light.tscn" id="8_ev8l6"]
 [ext_resource type="Texture2D" uid="uid://bq525epq0b3b1" path="res://assets/health_bar_under.aseprite" id="10_v52fu"]
 [ext_resource type="Texture2D" uid="uid://d4g3tvkj47da6" path="res://assets/health_bar_progress.aseprite" id="11_m7287"]
 [ext_resource type="PackedScene" uid="uid://cntf1h2i56oy6" path="res://scenes/interactables/key_panel.tscn" id="12_equnc"]
@@ -27,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cfjlqu0whcx7i" path="res://assets/pickups/torch_new.aseprite" id="25_ecte7"]
 [ext_resource type="PackedScene" uid="uid://cgf8b4tsnwxgb" path="res://scenes/interactables/powercell_panel.tscn" id="26_b1b3o"]
 [ext_resource type="PackedScene" uid="uid://cpi6gkyr8x5wj" path="res://scenes/enemies/spawn_marker.tscn" id="27_u3bj3"]
+[ext_resource type="PackedScene" uid="uid://410uhgkygcix" path="res://scenes/pickups/torch.tscn" id="28_s5e5v"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_30lam"]
 vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -124,6 +127,9 @@ texture = ExtResource("8_e7lc7")
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_w5pgf")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jk54y"]
+size = Vector2(63, 73)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17r8w"]
 size = Vector2(110, 64)
 
@@ -144,7 +150,6 @@ script = ExtResource("1_thqv1")
 music = ExtResource("2_ty0s7")
 
 [node name="Darkness" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0588235, 0.0196078, 0, 1)
 
 [node name="CollidablesTileMap" type="TileMap" parent="."]
@@ -160,9 +165,27 @@ layer_0/tile_data = PackedInt32Array(1572865, 65537, 1, 1572866, 1, 1, 1638401, 
 [node name="PlayerTopDown" parent="." instance=ExtResource("2_387ag")]
 position = Vector2(313, 452)
 
-[node name="Spaceship" type="Sprite2D" parent="."]
-position = Vector2(300, -1056)
+[node name="Spaceship" type="Area2D" parent="."]
+position = Vector2(304, -1044)
+script = ExtResource("6_cc4ul")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spaceship"]
+position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("19_h3aji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spaceship"]
+position = Vector2(0.5, 26.5)
+shape = SubResource("RectangleShape2D_jk54y")
+
+[node name="Light" parent="Spaceship" instance=ExtResource("8_ev8l6")]
+energy = 3.0
+texture_scale = 0.75
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Spaceship"]
+emitting = false
+
+[node name="Timer" type="Timer" parent="Spaceship"]
+wait_time = 4.0
 
 [node name="KeyPanel" parent="." groups=["Interactable"] instance=ExtResource("12_equnc")]
 position = Vector2(417, -959)
@@ -189,7 +212,6 @@ position = Vector2(-8, 4)
 shape = SubResource("RectangleShape2D_cnyel")
 
 [node name="FirstGate" type="StaticBody2D" parent="." groups=["FirstGate"]]
-visible = false
 position = Vector2(322, 321)
 
 [node name="Sprite2D" parent="FirstGate" instance=ExtResource("19_gwp45")]
@@ -201,7 +223,6 @@ position = Vector2(-20, -17)
 shape = SubResource("RectangleShape2D_17r8w")
 
 [node name="SecondGate" type="StaticBody2D" parent="." groups=["SecondGate"]]
-visible = false
 position = Vector2(313, -80)
 
 [node name="Sprite2D" parent="SecondGate" instance=ExtResource("19_gwp45")]
@@ -212,7 +233,6 @@ position = Vector2(-8, -30.25)
 shape = SubResource("RectangleShape2D_8abk0")
 
 [node name="ThirdGate" type="StaticBody2D" parent="." groups=["ThirdGate"]]
-visible = false
 position = Vector2(312, -495)
 
 [node name="Sprite2D" parent="ThirdGate" instance=ExtResource("19_gwp45")]
@@ -249,6 +269,8 @@ position = Vector2(533, -640)
 [node name="GameManager" parent="." instance=ExtResource("6_1gbjt")]
 
 [node name="BulletManager" parent="." instance=ExtResource("7_cbvos")]
+
+[node name="EnemyContainer" type="Node2D" parent="." groups=["EnemyContainer"]]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -307,4 +329,9 @@ metadata/_edit_use_anchors_ = true
 [node name="SelectSfx" parent="." instance=ExtResource("4_7kf0b")]
 bus = &"Sound"
 
+[node name="Torch" parent="." instance=ExtResource("28_s5e5v")]
+position = Vector2(220, 556)
+
+[connection signal="body_entered" from="Spaceship" to="Spaceship" method="_on_body_entered"]
+[connection signal="timeout" from="Spaceship/Timer" to="Spaceship" method="_on_timer_timeout"]
 [connection signal="body_entered" from="EndZone" to="GameManager" method="_on_end_zone_body_entered"]
