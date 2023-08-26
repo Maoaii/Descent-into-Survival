@@ -156,7 +156,7 @@ func _physics_process(delta: float) -> void:
 	if has_torch:
 		$Light.texture_scale = 1.5
 	else:
-		$Light.texture_scale = 0.75
+		$Light.texture_scale = 1
 	
 	if has_torch and Input.is_action_just_pressed("drop_torch"):
 		drop_torch()

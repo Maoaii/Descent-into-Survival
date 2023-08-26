@@ -1,3 +1,4 @@
+Marker2D
 AudioStreamPlayer2D
 Sprite2D
 Area2D
@@ -14,7 +15,6 @@ TextureButton
 Timer
 CanvasLayer
 NavigationObstacle2D
-Marker2D
 Control
 NavigationAgent2D
 CharacterBody2D
