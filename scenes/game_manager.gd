@@ -12,6 +12,7 @@ var used_key: bool = false
 var used_powercell: bool = false
 
 var exit_gate_opened: bool = false
+var end_room: bool = false
 
 func _ready() -> void:
 	bullet_manager = get_tree().get_first_node_in_group("BulletManager")
@@ -50,4 +51,7 @@ func _on_end_zone_body_entered(body):
 		get_tree().get_first_node_in_group("LeftMarker").start_spawning()
 		get_tree().get_first_node_in_group("MiddleMarker").start_spawning()
 		get_tree().get_first_node_in_group("RightMarker").start_spawning()
-		DialogueManager.show_dialogue_balloon(load("res://dialogues/coming.dialogue"), "start", 4)
+		
+		if not end_room:
+			DialogueManager.show_dialogue_balloon(load("res://dialogues/coming.dialogue"), "start", 4)
+			end_room = true
