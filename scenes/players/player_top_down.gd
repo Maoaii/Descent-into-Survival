@@ -345,6 +345,7 @@ func _on_action_timer_timeout():
 		nearest_actionable.get_parent().release()
 		has_axe = false
 		get_tree().get_first_node_in_group("GameManager").set_used_axe()
+		$AxePlayer.play()
 	if nearest_actionable.get_parent().name == "KeyPanel" and has_key:
 		nearest_actionable.get_parent().release()
 		has_key = false

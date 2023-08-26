@@ -33,3 +33,5 @@ res://addons/dialogue_manager/dialogue_manager.gd
 res://scenes/main_menu/main_menu.tscn
 res://scenes/death_screen/death_screen.tscn
 res://scenes/paused/paused.gd
+res://scenes/enemies/medusa_enemy.gd
+res://scenes/enemies/chasing_enemy.gd

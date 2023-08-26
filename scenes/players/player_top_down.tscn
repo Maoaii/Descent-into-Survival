@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://m03vwsnrma2p"]
+[gd_scene load_steps=14 format=3 uid="uid://m03vwsnrma2p"]
 
 [ext_resource type="Script" path="res://scenes/players/player_top_down.gd" id="1_2l78q"]
 [ext_resource type="Shader" path="res://scenes/players/player_top_down.gdshader" id="1_45xx1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://niepur7b0l2i" path="res://assets/player/protag.aseprite" id="3_elxt2"]
 [ext_resource type="PackedScene" uid="uid://kv3shvktt6ap" path="res://scenes/gameplay/light.tscn" id="4_tqqqq"]
 [ext_resource type="PackedScene" uid="uid://vt50pn6egjwn" path="res://scenes/components/health_component.tscn" id="5_y0svs"]
+[ext_resource type="AudioStream" uid="uid://vi1r3wvotpwj" path="res://sound/sfx/Game Jam_Ax_bip.wav" id="6_f1sk3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qaq0v"]
 shader = ExtResource("1_45xx1")
@@ -117,6 +118,10 @@ bus = &"Sound"
 [node name="SFXShooting" type="AudioStreamPlayer2D" parent="."]
 volume_db = -15.0
 pitch_scale = 1.1
+bus = &"Sound"
+
+[node name="AxePlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_f1sk3")
 bus = &"Sound"
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_y0svs")]

@@ -1,3 +1,4 @@
+AudioStreamPlayer2D
 TextureRect
 Label
 Button
@@ -9,7 +10,6 @@ Node2D
 Marker2D
 StaticBody2D
 AnimatedSprite2D
-AudioStreamPlayer2D
 Sprite2D
 AnimationPlayer
 TextureProgressBar
