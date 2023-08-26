@@ -1,10 +1,15 @@
-res://scenes/interactables/key_panel.tscn
+res://scenes/interactables/powercell_panel.tscn
 res://scenes/gameplay/collidable_tile_set.tres
 res://scenes/players/player_top_down.gdshader
 res://assets/ui/button_hover.tres
 res://assets/ui/button_pressed.tres
 res://scenes/gameplay/outline.gdshader
-res://scenes/interactables/key_panel.gd
 res://scenes/gameplay/gameplay.tscn
+res://scenes/interactables/key_panel.tscn
+res://scenes/enemies/spawn_marker.tscn
+res://scenes/enemies/SpawnMarker.gd
+res://scenes/game_manager.gd
+res://scenes/interactables/key_panel.gd
+res://scenes/interactables/powercell_panel.gd
 res://scenes/gameplay/interactable.gd
 res://scenes/players/player_top_down.gd

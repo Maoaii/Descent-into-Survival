@@ -330,3 +330,13 @@ func pickup(object: Pickup) -> void:
 func _on_action_timer_timeout():
 	if nearest_actionable.get_parent().name == "ExitGate" and has_axe:
 		nearest_actionable.get_parent().release()
+		has_axe = false
+		get_tree().get_first_node_in_group("GameManager").set_used_axe()
+	if nearest_actionable.get_parent().name == "KeyPanel" and has_key:
+		nearest_actionable.get_parent().release()
+		has_key = false
+		get_tree().get_first_node_in_group("GameManager").set_used_key()
+	if nearest_actionable.get_parent().name == "PowercellPanel" and has_powercell:
+		nearest_actionable.get_parent().release()
+		has_powercell = false
+		get_tree().get_first_node_in_group("GameManager").set_used_powercell()
