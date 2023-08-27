@@ -132,7 +132,7 @@ navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_w5pgf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jk54y"]
-size = Vector2(63, 73)
+size = Vector2(113, 91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17r8w"]
 size = Vector2(110, 64)
@@ -178,7 +178,7 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("19_h3aji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spaceship"]
-position = Vector2(0.5, 26.5)
+position = Vector2(8.5, 23.5)
 shape = SubResource("RectangleShape2D_jk54y")
 
 [node name="Light" parent="Spaceship" instance=ExtResource("8_ev8l6")]

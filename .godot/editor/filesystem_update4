@@ -5,6 +5,7 @@ res://assets/ui/button_hover.tres
 res://assets/ui/button_pressed.tres
 res://scenes/gameplay/outline.gdshader
 res://scenes/gameplay/gameplay.tscn
+res://scenes/players/player_top_down.gd
 res://scenes/enemies/shooting_enemy.tscn
 res://scenes/enemies/medusa_enemy.tscn
 res://scenes/players/player_top_down.tscn
