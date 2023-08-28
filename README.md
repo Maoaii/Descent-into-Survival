@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Maoaii/Descent-into-Survival">
-    <img src="" alt="Logo" width="360" height="360">
+    <img src="./assets/cover.png" alt="Logo" width="600" height="360">
   </a>
 
   <p align="center">
